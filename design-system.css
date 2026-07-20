@@ -1,0 +1,113 @@
+/*
+  Pyae Phyo Kyaw - Master Design System
+  Based on Apple Design Language (Modern, Clean, Glassmorphism)
+*/
+
+:root {
+    /* Colors - Light Mode */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f5f5f7;
+    --color-text-primary: #1d1d1f;
+    --color-text-secondary: #86868b;
+    --color-accent: #0066cc;
+    --color-accent-hover: #0077ed;
+    --color-border: #d2d2d7;
+    --color-glass-bg: rgba(255, 255, 255, 0.7);
+    --color-glass-border: rgba(255, 255, 255, 0.3);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.12);
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+
+    /* Transitions */
+    --transition-apple: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Base Reset & Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.47;
+}
+
+/* Semantic Layout Components */
+main {
+    display: block;
+    width: 100%;
+}
+
+/* Apple-style Glassmorphism Header/Nav */
+.glass-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-glass-border);
+    transition: var(--transition-apple);
+}
+
+/* Apple-style Cards */
+.apple-card {
+    background: var(--color-bg-primary);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+    transition: var(--transition-apple);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid transparent;
+}
+
+.apple-card:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-border);
+}
+
+/* Apple Buttons */
+.apple-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-apple);
+    text-decoration: none;
+    border: none;
+    background: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+}
+
+.apple-btn-primary {
+    background: var(--color-accent);
+    color: white;
+}
+
+.apple-btn-primary:hover {
+    background: var(--color-accent-hover);
+}
+
+/* Typography Utilities */
+.text-secondary {
+    color: var(--color-text-secondary);
+}
+
+.text-center {
+    text-align: center;
+}
