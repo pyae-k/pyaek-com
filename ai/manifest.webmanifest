@@ -1,0 +1,23 @@
+{
+  "name": "ChatAI",
+  "short_name": "ChatAI",
+  "description": "ChatAI — offline-capable AI chatbox PWA with voice, image generation, web search, RAG over your documents, and agentic file tools. Bring your own API keys or connect a local Ollama instance.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f2f2f7",
+  "theme_color": "#f2f2f7",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "New chat", "short_name": "New", "url": "./?action=new" },
+    { "name": "Settings", "short_name": "Config", "url": "./?action=settings" }
+  ]
+}

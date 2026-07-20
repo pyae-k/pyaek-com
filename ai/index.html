@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)" />
+  <meta name="description" content="ChatAI — free, offline-first AI chatbox PWA. Chat privately with OpenAI, Anthropic, Ollama & more. No account needed. Local-only history, RAG knowledge base, voice I/O, installable." />
+  <meta name="keywords" content="ChatAI, free AI chat, offline AI, private AI chat, local AI, PWA, no account needed, open source AI" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pyaek.com/ai/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://pyaek.com/ai/" />
+  <meta property="og:title" content="ChatAI — Free Offline-First AI Chat PWA" />
+  <meta property="og:description" content="Chat privately with AI using your own API keys. Offline-first, no account needed, local-only history. Supports OpenAI, Anthropic, Ollama & more." />
+  <meta property="og:site_name" content="Pyae Phyo Kyaw" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ChatAI — Free Offline-First AI Chat PWA" />
+  <meta name="twitter:description" content="Chat privately with AI using your own API keys. Offline-first, no account needed, local-only history." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ChatAI" />
+  <title>ChatAI — Free Offline-First AI Chat PWA | Pyae Phyo Kyaw</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="fsa-banner" class="fsa-banner" hidden>
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Folder access requires Chrome/Edge on desktop. File attachments still work in this browser.
+    </div>
+    <header class="topbar">
+      <div class="brand">
+        <img src="icons/icon-192.png" alt="" class="brand-logo" width="26" height="26" />
+        <h1>ChatAI</h1>
+        <div class="brand-actions">
+          <button id="btn-readme" class="icon-btn" title="View README documentation" aria-label="View README documentation">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </button>
+          <button id="btn-tech-doc" class="icon-btn" title="View technical documentation" aria-label="View technical documentation">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </button>
+          <button id="btn-contact" class="icon-btn" title="Contact us at hello@pyaek.com" aria-label="Contact us">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span id="net-status" class="icon-btn status-online" title="Network status: online" aria-label="Network status">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="12" cy="12" r="6" fill="currentColor"/></svg>
+        </span>
+        <button id="btn-online" class="icon-btn online-toggle online-on" title="Online mode: on" aria-label="Toggle online mode">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h.01"/><path d="M8 16.76a5 5 0 0 1 8 0"/><path d="M5 12.86a9 9 0 0 1 14 0"/><path d="M2 8.83a13 13 0 0 1 20 0"/></svg>
+        </button>
+        <button id="btn-import" class="icon-btn" title="Import conversations + settings from JSON" aria-label="Import conversations and settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+        </button>
+        <button id="btn-export" class="icon-btn" title="Export all conversations + settings as JSON" aria-label="Export conversations and settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5"/><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg>
+        </button>
+        <button id="btn-export-chat" class="icon-btn" title="Export current chat as HTML" aria-label="Export current chat as HTML">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
+        </button>
+                <button id="btn-settings" class="icon-btn" title="Settings" aria-label="Open settings">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+      </div>
+      <input id="file-import" type="file" accept="application/json,.json" hidden />
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar" id="sidebar" data-open="true">
+        <div id="project-panel" class="project-panel" hidden>
+          <div class="project-header">
+            <span class="project-title">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+              <span id="project-name">No folder</span>
+            </span>
+            <div class="project-actions">
+              <button id="btn-refresh-folder" class="icon-btn" title="Refresh file tree" aria-label="Refresh file tree">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>
+              </button>
+              <button id="btn-disconnect-folder" class="icon-btn" title="Disconnect folder" aria-label="Disconnect folder">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+          </div>
+          <nav id="file-tree" class="file-tree" aria-label="Project files"></nav>
+        </div>
+        <div class="sidebar-search">
+          <button id="btn-new" class="icon-btn" title="Start a new conversation" aria-label="New chat">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <input type="search" id="search" placeholder="Search chats…" aria-label="Search conversations" />
+        </div>
+        <nav id="chat-list" class="chat-list" aria-label="Conversations"></nav>
+      </aside>
+
+      <button id="sidebar-handle" class="sidebar-handle" title="Toggle sidebar" aria-label="Toggle sidebar">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+
+      <section class="chat">
+        <div class="chat-split">
+          <div id="messages" class="messages" aria-live="polite"></div>
+
+          <div id="split-handle" class="split-handle" hidden></div>
+
+          <div id="browser-view" class="browser-view" hidden>
+          <div class="browser-toolbar">
+            <button id="btn-browser-back" class="icon-btn" title="Go back" aria-label="Go back">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+            </button>
+            <button id="btn-browser-forward" class="icon-btn" title="Go forward" aria-label="Go forward">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </button>
+            <button id="btn-browser-refresh" class="icon-btn" title="Refresh" aria-label="Refresh">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 2v6h-6"/><path d="M2.5 22v-6h6"/><path d="M2 11.5a10 10 0 0 1 18.8-4.3"/><path d="M22 12.5a10 10 0 0 1-18.8 4.3"/></svg>
+            </button>
+            <div class="browser-url-wrap">
+              <input type="text" id="browser-url" class="browser-url-input" placeholder="Enter URL…" autocomplete="off" spellcheck="false" />
+            </div>
+            <button id="btn-browser-go" class="icon-btn" title="Go" aria-label="Navigate to URL">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7z"/></svg>
+            </button>
+          </div>
+          <div class="browser-content">
+            <iframe id="browser-iframe" class="browser-iframe" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" loading="lazy"></iframe>
+            <div id="browser-placeholder" class="browser-placeholder">
+              <div class="browser-start-page">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <p>Browse the web</p>
+                <div class="browser-start-search">
+                  <input type="text" id="browser-start-input" placeholder="Enter a URL or search the web…" autocomplete="off" spellcheck="false" />
+                  <button type="button" id="btn-browser-start-go" class="chip primary">Go</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="composer" class="composer" autocomplete="off">
+          <select id="connection-select" class="connection-select" title="Choose connection" aria-label="Choose connection"></select>
+          <select id="agent-select" class="agent-select" title="Choose agent" aria-label="Choose agent"></select>
+          <div class="composer-input-wrap">
+            <div id="attachment-preview" class="attachment-preview" hidden></div>
+            <div class="composer-input-row">
+              <button type="button" id="btn-attach" class="icon-btn attach-btn" title="Attach any file" aria-label="Attach any file">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              </button>
+              <button type="button" id="btn-browser" class="icon-btn browser-btn" title="Browser mode" aria-label="Toggle browser mode">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </button>
+              <button type="button" id="btn-link-folder" class="icon-btn link-btn" title="Link folder or file for agentic AI" aria-label="Link folder or file for agentic AI">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><circle cx="17" cy="13" r="2.5" fill="currentColor" stroke="none"/></svg>
+              </button>
+              <div id="voice-recording-bar" class="voice-recording-bar" hidden title="Click the mic button to stop recording" aria-label="Voice recording. Click the mic button to stop.">
+                <div class="voice-wave"><span></span><span></span><span></span><span></span><span></span></div>
+                <span id="voice-recording-text" class="voice-recording-text">Listening…</span>
+                <button type="button" id="btn-stop-voice" class="icon-btn stop-voice-btn" title="Stop recording" aria-label="Stop recording">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+                </button>
+              </div>
+              <textarea id="input" rows="1" placeholder="Message… (Enter to send, Shift+Enter for newline)" autocomplete="off" autofocus></textarea>
+              <button type="button" id="btn-voice" class="icon-btn voice-btn" title="Start voice recording" aria-label="Start voice recording">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="22"/>
+                </svg>
+              </button>
+              <button type="button" id="btn-send" class="send" title="Send message" aria-label="Send message">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button type="button" id="btn-stop" class="stop" hidden title="Stop generating" aria-label="Stop generating">
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3" fill="currentColor"/></svg>
+              </button>
+            </div>
+          </div>
+          <input id="file-attach" type="file" accept="*/*" multiple hidden />
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Settings dialog -->
+  <dialog id="settings-dialog" class="dialog">
+    <form method="dialog" id="settings-form">
+      <h2>Settings</h2>
+      <p class="muted">Connections and agents are stored locally. Requests go directly from your browser to the API endpoint you configure.</p>
+
+      <div class="settings-section">
+        <div class="section-header">
+          <h3>Connections</h3>
+          <button type="button" id="btn-add-connection" class="add-btn">Add</button>
+        </div>
+        <div id="connections-list"></div>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-header">
+          <h3>Agents &amp; prompts</h3>
+          <div class="section-actions">
+            <button type="button" id="btn-reset-agents" class="add-btn" title="Restore the 8 default agents to their original prompts">restore defaults</button>
+            <button type="button" id="btn-add-agent" class="add-btn">Add</button>
+          </div>
+        </div>
+        <div id="agents-list"></div>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-header">
+          <h3>Usage</h3>
+        </div>
+        <div class="dialog-actions" style="justify-content:flex-start;">
+          <button type="button" id="btn-reset-usage" class="chip">reset today’s usage</button>
+        </div>
+      </div>
+
+      <div class="settings-section" id="rag-settings" hidden>
+        <div class="section-header">
+          <h3>Knowledge base (RAG)</h3>
+          <button type="button" id="btn-add-kb" class="add-btn">Add file</button>
+        </div>
+        <input id="kb-file-input" type="file" accept=".pdf,.docx,.doc,.txt,.md,.csv,.html,.htm" multiple hidden />
+        <label class="row">
+          <span>Embedding provider</span>
+          <select id="rag-embedding-provider">
+            <option value="">None — add an embedding connection</option>
+            <option value="openai_embeddings">OpenAI Embeddings</option>
+            <option value="ollama_embeddings">Ollama Embeddings</option>
+            <option value="gemini_embeddings">Gemini Embeddings</option>
+          </select>
+        </label>
+        <label class="row">
+          <span>Top-K chunks to retrieve</span>
+          <input type="number" id="rag-top-k" min="1" max="20" step="1" value="5" />
+        </label>
+        <label class="row">
+          <span>Chunk size (tokens approx)</span>
+          <input type="number" id="rag-chunk-size" min="100" max="2000" step="50" value="500" />
+        </label>
+        <label class="row">
+          <span>Chunk overlap</span>
+          <input type="number" id="rag-chunk-overlap" min="0" max="500" step="25" value="100" />
+        </label>
+        <div id="kb-list"></div>
+      </div>
+
+      <div class="settings-section" id="voice-settings">
+        <div class="section-header">
+          <h3>Voice</h3>
+        </div>
+        <label class="row">
+          <span>Text-to-speech provider</span>
+          <select id="tts-provider">
+            <option value="web-speech">Browser Web Speech (free, offline)</option>
+            <option value="openai_tts">OpenAI TTS</option>
+            <option value="elevenlabs_tts">ElevenLabs TTS</option>
+          </select>
+        </label>
+        <label class="row">
+          <span>Voice / language</span>
+          <input type="text" id="tts-lang" placeholder="e.g. en-US" />
+        </label>
+        <label class="row">
+          <span>Speech rate</span>
+          <input type="range" id="tts-rate" min="0.5" max="2" step="0.1" value="1" />
+        </label>
+        <label class="row">
+          <span>Speech pitch</span>
+          <input type="range" id="tts-pitch" min="0.5" max="2" step="0.1" value="1" />
+        </label>
+        <label class="row">
+          <span>Voice input provider</span>
+          <select id="voice-input-provider">
+            <option value="web-speech">Browser Web Speech (free, offline)</option>
+            <option value="whisper">Whisper-compatible (uploads audio)</option>
+          </select>
+        </label>
+        <p class="muted">Browser speech uses your device. API-based voice sends audio or text to the configured provider.</p>
+      </div>
+
+      <div class="danger-zone">
+        <h3>Danger zone</h3>
+        <p class="muted">Wipe all conversations and settings from this browser. This cannot be undone.</p>
+        <button type="button" id="btn-clear-all" class="danger-btn">clear all data</button>
+      </div>
+
+      <div class="dialog-actions">
+        <button type="button" id="btn-close" class="chip">close</button>
+        <button type="submit" class="chip primary">save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Add / edit connection dialog -->
+  <dialog id="add-dialog" class="dialog">
+    <form method="dialog" id="add-form">
+      <h2 id="add-title">Add connection</h2>
+      <p id="add-prompt" class="muted">Choose a provider and enter its details.</p>
+
+      <label class="row">
+        <span>Type</span>
+        <select id="add-type"></select>
+      </label>
+      <label class="row">
+        <span>Label (optional)</span>
+        <input type="text" id="add-label" placeholder="My connection" />
+      </label>
+      <label class="row">
+        <span>Endpoint</span>
+        <input type="text" id="add-endpoint" placeholder="https://…/v1/chat/completions" required />
+      </label>
+      <label class="row">
+        <span>Model</span>
+        <input type="text" id="add-model" placeholder="model-name" required />
+      </label>
+      <label class="row" id="add-key-wrap">
+        <span id="add-key-label">API key</span>
+        <input type="password" id="add-key" placeholder="sk-…" autocomplete="off" />
+      </label>
+
+      <p id="add-test-result" class="muted"></p>
+
+      <div class="dialog-actions">
+        <button type="button" id="btn-add-test" class="chip">test connection</button>
+        <button type="button" id="btn-add-close" class="chip">cancel</button>
+        <button type="submit" class="chip primary">save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Add / edit agent dialog -->
+  <dialog id="agent-dialog" class="dialog">
+    <form method="dialog" id="agent-form">
+      <h2 id="agent-title">Add agent</h2>
+      <p class="muted">Create a custom system prompt. The agent is sent as the system message for every request.</p>
+
+      <label class="row">
+        <span>Label</span>
+        <input type="text" id="agent-label" placeholder="e.g. French tutor" required />
+      </label>
+      <label class="row">
+        <span>Prompt</span>
+        <textarea id="agent-prompt" rows="4" placeholder="You are a helpful assistant." required></textarea>
+      </label>
+      <label class="row">
+        <span>Auto tags (comma separated)</span>
+        <input type="text" id="agent-tags" placeholder="e.g. french, translate, tutor" />
+      </label>
+
+      <div class="dialog-actions">
+        <button type="button" id="btn-agent-close" class="chip">cancel</button>
+        <button type="submit" class="chip primary">save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Link folder / file dialog -->
+  <dialog id="link-dialog" class="dialog link-dialog">
+    <div class="dialog-header">
+      <h3>Link location</h3>
+      <button id="btn-link-close" class="icon-btn" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="link-dialog-body">
+      <button type="button" id="btn-link-folder-choice" class="link-choice">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        <span>Link a folder</span>
+        <span class="link-desc">Agent can read, write, and search the whole folder.</span>
+      </button>
+      <button type="button" id="btn-link-file-choice" class="link-choice">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+        <span>Link a file</span>
+        <span class="link-desc">Agent can read and write a single text file.</span>
+      </button>
+    </div>
+  </dialog>
+
+  <!-- File preview / diff dialog -->
+  <dialog id="preview-dialog" class="dialog preview-dialog">
+    <div class="dialog-header">
+      <h3 id="preview-title">File preview</h3>
+      <button id="btn-preview-close" class="icon-btn" aria-label="Close preview">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <pre id="preview-content" class="preview-content"></pre>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
