@@ -1,7 +1,7 @@
 {
-  "name": "Projects I've Built",
-  "short_name": "Projects",
-  "description": "Free, open-source tools that work offline and keep your data on your device.",
+  "name": "Pyae Phyo Kyaw — Free Tools",
+  "short_name": "Pyae Phyo Kyaw",
+  "description": "Free, simple tools that work offline. No account needed. Your data never leaves your device.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
