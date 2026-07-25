@@ -23,10 +23,9 @@
   <meta name="apple-mobile-web-app-title" content="ChatAI" />
   <title>ChatAI — Free Offline-First AI Chat PWA | Pyae Phyo Kyaw</title>
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" type="image/svg+xml" href="icons/icon.svg" />
-  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png" />
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/icon-192.svg" />
+  <link rel="apple-touch-icon" href="/about/icons/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -402,5 +401,57 @@
   </dialog>
 
   <script src="app.js" type="module"></script>
+
+  <!-- SEO content -->
+  <section class="seo-content" style="max-width:720px;margin:2rem auto;padding:0 1rem 4rem;color:var(--text-secondary,#86868b);font-family:system-ui,-apple-system,sans-serif;line-height:1.7;font-size:0.9rem">
+    <div style="display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap">
+      <a href="/ai/readme/" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--bg-secondary,#f5f5f7);color:var(--text-secondary,#86868b);border:1px solid var(--border,#e5e5e7);border-radius:8px;text-decoration:none;font-size:13px;font-weight:500">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        README
+      </a>
+      <a href="/ai/tech-doc/" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--bg-secondary,#f5f5f7);color:var(--text-secondary,#86868b);border:1px solid var(--border,#e5e5e7);border-radius:8px;text-decoration:none;font-size:13px;font-weight:500">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Tech Doc
+      </a>
+      <a href="mailto:hello@pyaek.com" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:var(--bg-secondary,#f5f5f7);color:var(--text-secondary,#86868b);border:1px solid var(--border,#e5e5e7);border-radius:8px;text-decoration:none;font-size:13px;font-weight:500">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Contact
+      </a>
+    </div>
+    <h2 style="font-size:1.3rem;color:var(--text,#1d1d1f);margin-bottom:0.5rem">About ChatAI</h2>
+    <p>ChatAI is a minimal, trustworthy, <strong>offline-first</strong> AI chatbox PWA you can self-host on GitHub Pages or any static host. Add your own API connections and agents/prompts, then switch between them from the composer — or let the app pick automatically based on your first message.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Key Features</h3>
+    <ul style="padding-left:1.2rem;margin:0.5rem 0">
+      <li><strong>Works offline</strong> — the app shell, your conversations, and your settings all load with no network.</li>
+      <li><strong>Local-only privacy</strong> — every chat, setting, and API key lives in your browser (IndexedDB + localStorage). Nothing is sent to any server except the API endpoint you choose.</li>
+      <li><strong>Single-file import/export</strong> — download all conversations + settings as one JSON file, and import it back on any device.</li>
+      <li><strong>Connection-based</strong> — add as many API endpoints as you want (OpenAI, Anthropic, Ollama, Gemini, and 20+ more), enable or disable each one, and switch quickly from the composer.</li>
+      <li><strong>Agent-based prompts</strong> — create multiple system prompts and pick one per chat, or let the app auto-select based on the first message.</li>
+      <li><strong>Installable</strong> — add to home screen / desktop as a PWA.</li>
+      <li><strong>Open source</strong> — clone and self-host as your own SaaS in minutes.</li>
+    </ul>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Voice Input &amp; Output</h3>
+    <p>Use the mic button in the composer to start voice recording — click to start, click again to stop. Uses the free browser Web Speech API by default (Chrome/Edge), with optional Whisper API. A speaker button appears on assistant messages when text-to-speech is enabled, supporting browser speech, OpenAI TTS, or ElevenLabs.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Image Generation &amp; Web Search</h3>
+    <p>Ask for an image (e.g. "draw a cat") and the app automatically routes to an enabled DALL·E or Stability AI connection. Select the Web Researcher agent (or ask a search-style question) and the app calls Tavily, Brave Search, or SerpApi, then asks your chat model to answer with source citations.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">RAG Knowledge Base</h3>
+    <p>In Settings → Knowledge base, choose an embedding provider and upload PDF, DOCX, TXT, MD, CSV, or HTML documents. The app chunks, embeds, and stores vectors locally in IndexedDB. Ask the Knowledge Base Researcher agent to retrieve relevant excerpts and answer from your uploaded files.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Agentic Folder/File Coding</h3>
+    <p>Link a folder or file in the composer and the autonomous agent loop can read, write, search, and patch files using the browser File System Access API (Chrome/Edge desktop). The agent runs an autonomous loop — read, plan, write, verify — until it emits a final answer, with a live stop button to interrupt.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Supported Providers</h3>
+    <p>OpenAI, Anthropic Claude, Google Gemini, Azure OpenAI, AWS Bedrock, Google Cloud Vertex AI, Ollama, Moonshot Kimi, Zhipu GLM, MiniMax, NVIDIA, Alibaba Qwen, OpenRouter, Groq, Together AI, Fireworks AI, Cohere, Mistral AI, DeepSeek, Perplexity, xAI Grok, AI21 Labs, Anyscale, Replicate, Hugging Face, Cloudflare Workers AI, and any OpenAI-compatible endpoint.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Privacy</h3>
+    <p>API keys, conversations, and settings are stored locally in your browser only. Requests go directly from your browser to the endpoint you select. There is no server, no analytics, no accounts, no tracking. Clearing your browser data deletes everything — use export to back up.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">License</h3>
+    <p>MIT — do whatever you want. Attribution appreciated.</p>
+  </section>
 </body>
 </html>

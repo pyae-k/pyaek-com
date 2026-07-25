@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ChatAI README — documentation for the free, offline-first AI chat PWA. Learn how to deploy, configure connections, use agents, voice I/O, RAG, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://pyaek.com/ai/readme/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://pyaek.com/ai/readme/" />
+  <meta property="og:title" content="ChatAI README — Documentation" />
+  <meta property="og:description" content="Complete documentation for ChatAI: deployment, API connections, agents, voice I/O, RAG knowledge base, and more." />
+  <meta property="og:site_name" content="Pyae Phyo Kyaw" />
+  <title>ChatAI README — Documentation | Pyae Phyo Kyaw</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #ffffff; --text: #1d1d1f; --text-secondary: #86868b;
+      --accent: #0066cc; --border: #e5e5e7; --code-bg: #f5f5f7;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7; color: var(--text); background: var(--bg);
+    }
+    body { max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+    h1 { font-size: 2rem; font-weight: 700; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+    h2 { font-size: 1.4rem; font-weight: 600; margin: 2rem 0 0.75rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 1.15rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+    p { margin: 0.5rem 0; }
+    ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+    li { margin: 0.25rem 0; }
+    code { background: var(--code-bg); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.88em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; margin: 0.75rem 0; font-size: 0.88em; }
+    pre code { background: none; padding: 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.92em; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
+    th { background: var(--code-bg); font-weight: 600; }
+    strong { font-weight: 600; }
+    .back { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+    blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; margin: 0.75rem 0; color: var(--text-secondary); }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #1c1c1e; --text: #f5f5f7; --text-secondary: #98989d; --accent: #0a84ff; --border: #38383a; --code-bg: #2c2c2e; }
+    }
+  </style>
+</head>
+<body>
+  <a href="/ai/" class="back">&larr; Back to ChatAI</a>
+  <h1>ChatAI</h1>
+  <p style="color:var(--text-secondary);margin-bottom:1.5rem">A minimal, trustworthy, <strong>offline-first</strong> AI chatbox PWA you can self-host on GitHub Pages (or any static host).</p>
+
+  <p>Add your own <strong>API connections</strong> and <strong>agents/prompts</strong>. Switch connections and agents from the composer, or let the app pick them automatically based on your first message.</p>
+
+  <ul>
+    <li><strong>Works offline</strong> — the app shell, your conversations, and your settings all load with no network. (AI API calls themselves need network, of course.)</li>
+    <li><strong>Local-only</strong> — every chat, setting, and API key lives in your browser (IndexedDB + localStorage). Nothing is sent to any server except the API endpoint you choose for a given request.</li>
+    <li><strong>Single-file import/export</strong> — download all conversations + settings as one JSON file, and import it back on any device.</li>
+    <li><strong>Connection-based</strong> — add as many API endpoints as you want, enable or disable each one, and switch quickly from the composer.</li>
+    <li><strong>Agent-based prompts</strong> — create multiple system prompts and pick one per chat, or let the app auto-select based on the first message.</li>
+    <li><strong>Installable</strong> — add to home screen / desktop as a PWA.</li>
+    <li><strong>Open source</strong> — clone and self-host as your own SaaS in minutes.</li>
+  </ul>
+
+  <h2>Deploy to GitHub Pages</h2>
+  <ol>
+    <li>Create a new public repository and push this code to it (or fork this repo).</li>
+    <li>In the repo, go to <strong>Settings → Pages → Build and deployment → Source</strong> and choose <strong>GitHub Actions</strong>.</li>
+    <li>Push to <code>main</code>. The included workflow (<code>.github/workflows/deploy.yml</code>) builds and deploys the site to GitHub Pages automatically.</li>
+    <li>Open the Pages URL shown under <strong>Settings → Pages</strong>.</li>
+  </ol>
+  <blockquote>No build step required — this is a pure static site. The workflow simply uploads the repo root as the Pages artifact.</blockquote>
+
+  <h2>Run Locally</h2>
+  <pre><code># Python 3
+python3 -m http.server 8000
+# then open http://localhost:8000</code></pre>
+  <p>Or any static file server (<code>npx serve</code>, <code>caddy file-server</code>, etc.). A normal <code>file://</code> URL will NOT work because service workers require an http(s) origin.</p>
+
+  <h2>Self-Host (Any Static Host)</h2>
+  <p>Copy all files to any static host root (Netlify, Vercel, Cloudflare Pages, S3, Nginx). Ensure <code>index.html</code>, <code>sw.js</code>, <code>manifest.webmanifest</code>, <code>app.js</code>, <code>providers.js</code>, <code>styles.css</code>, and the <code>icons/</code> folder are all served from the same directory. That's it — no backend, no database.</p>
+
+  <h2>Usage</h2>
+  <ol>
+    <li>Open <strong>Settings</strong> (gear icon in the topbar).</li>
+    <li>Tap <strong>+ Add connection</strong> and choose an API type: Ollama, OpenAI, Anthropic, Google Gemini, Azure OpenAI, AWS Bedrock, Google Cloud Vertex AI, Moonshot Kimi, Zhipu GLM, MiniMax, NVIDIA, Alibaba Qwen, OpenRouter, Groq, Together AI, Fireworks AI, Cohere, Mistral AI, DeepSeek, Perplexity, xAI Grok, AI21 Labs, Anyscale, Replicate, Hugging Face, Cloudflare Workers AI, and more. Voice providers include OpenAI Whisper, OpenAI TTS, and ElevenLabs TTS. Image providers include OpenAI DALL·E and Stability AI. Search providers include Tavily, Brave Search, and SerpApi.</li>
+    <li>Tap <strong>+ Add agent</strong> to create custom system prompts. Default agents include General assistant, Data assistant, Code assistant, Writing assistant, Research assistant, Reason assistant, Image creator, Web researcher, and Knowledge base researcher.</li>
+    <li>In the composer, pick a connection and agent from the dropdowns, or choose <strong>Auto</strong>. Auto mode selects a suitable connection and agent from the first message keywords.</li>
+    <li>Start chatting. Press <strong>Enter</strong> to send, <strong>Shift+Enter</strong> for a newline. While generating, a <strong>stop</strong> button appears to abort the request. Use the <strong>mic button</strong> for voice input.</li>
+    <li>Use <strong>export</strong> (topbar) to save everything as one JSON file, and <strong>import</strong> to restore. The HTML export button downloads the current chat as an <code>.html</code> file.</li>
+    <li>Double-click a chat title in the sidebar to rename it.</li>
+    <li>The <strong>clear all data</strong> action lives in Settings → Danger zone.</li>
+    <li>Install as an app (browser → Install / Add to Home Screen).</li>
+  </ol>
+
+  <h2>New Capabilities</h2>
+
+  <h3>Voice Input/Output</h3>
+  <p><strong>Mic button</strong> in the composer: click to start recording, click again to stop. Uses the free browser Web Speech API by default (Chrome/Edge). Optional Whisper API. <strong>Speaker button</strong> appears on assistant messages when text-to-speech is enabled. Uses free browser speech by default; optional OpenAI TTS or ElevenLabs.</p>
+
+  <h3>Image Generation</h3>
+  <p>Ask for an image (e.g. "draw a cat") and the app automatically routes to an enabled <strong>DALL·E</strong> or <strong>Stability AI</strong> connection. The generated image is shown inline in the chat.</p>
+
+  <h3>Web Search</h3>
+  <p>Select the <strong>Web researcher</strong> agent and the app calls <strong>Tavily</strong>, <strong>Brave Search</strong>, or <strong>SerpApi</strong>, then asks your chat model to answer with source citations. Source chips are rendered below the reply.</p>
+
+  <h3>RAG Knowledge Base</h3>
+  <p>In Settings → Knowledge base, choose an <strong>embedding provider</strong> and upload PDF, DOCX, TXT, MD, CSV, or HTML documents. The app chunks, embeds, and stores vectors locally in IndexedDB. Ask the <strong>Knowledge base researcher</strong> agent to retrieve relevant excerpts and answer from your uploaded files.</p>
+
+  <h3>Document Parsing</h3>
+  <p>Attach PDF or DOCX files to any chat. Text is extracted in the browser using <code>pdfjs-dist</code> and <code>mammoth.js</code> and included in the message context.</p>
+
+  <h3>Browser Agent</h3>
+  <p>Click the <strong>globe icon</strong> in the composer to open the browser panel in split view. The browser panel shows a <strong>search interface</strong> when first opened — type a URL or a search query to navigate. Send a message in browser mode and the AI uses a fetch-based browser agent to navigate pages, extract content, click links, and fill forms.</p>
+
+  <h3>Agentic Tools (Folder/File Coding)</h3>
+  <p>Link a folder or file in the composer. The autonomous agent loop can call <strong>web search</strong>, <strong>image generation</strong>, <strong>URL fetch</strong>, and <strong>knowledge base search</strong> when those connections are enabled, in addition to reading/writing files.</p>
+
+  <h2>Where to Get API Keys</h2>
+  <ul>
+    <li><strong>OpenAI:</strong> <a href="https://platform.openai.com/api-keys">platform.openai.com/api-keys</a></li>
+    <li><strong>Anthropic Claude:</strong> <a href="https://console.anthropic.com/settings/keys">console.anthropic.com/settings/keys</a></li>
+    <li><strong>Google Gemini / AI Studio:</strong> <a href="https://aistudio.google.com/app/apikey">aistudio.google.com/app/apikey</a></li>
+    <li><strong>Azure OpenAI:</strong> <a href="https://portal.azure.com/">portal.azure.com</a></li>
+    <li><strong>OpenRouter:</strong> <a href="https://openrouter.ai/keys">openrouter.ai/keys</a></li>
+    <li><strong>Groq:</strong> <a href="https://console.groq.com/keys">console.groq.com/keys</a></li>
+    <li><strong>Together AI:</strong> <a href="https://api.together.xyz/settings/api-keys">api.together.xyz/settings/api-keys</a></li>
+    <li><strong>Mistral AI:</strong> <a href="https://console.mistral.ai/api-keys/">console.mistral.ai/api-keys</a></li>
+    <li><strong>DeepSeek:</strong> <a href="https://platform.deepseek.com/api_keys">platform.deepseek.com/api_keys</a></li>
+    <li><strong>Perplexity:</strong> <a href="https://www.perplexity.ai/settings/api">perplexity.ai/settings/api</a></li>
+    <li><strong>Hugging Face:</strong> <a href="https://huggingface.co/settings/tokens">huggingface.co/settings/tokens</a></li>
+    <li><strong>Cloudflare:</strong> <a href="https://dash.cloudflare.com/profile/api-tokens">dash.cloudflare.com/profile/api-tokens</a></li>
+    <li><strong>ElevenLabs TTS:</strong> <a href="https://elevenlabs.io/app/settings/api-keys">elevenlabs.io/app/settings/api-keys</a></li>
+    <li><strong>Stability AI:</strong> <a href="https://platform.stability.ai/account/keys">platform.stability.ai/account/keys</a></li>
+    <li><strong>Tavily Search:</strong> <a href="https://app.tavily.com/home">app.tavily.com/home</a></li>
+    <li><strong>Brave Search API:</strong> <a href="https://api.search.brave.com/app/keys">api.search.brave.com/app/keys</a></li>
+    <li><strong>SerpApi:</strong> <a href="https://serpapi.com/manage-api-key">serpapi.com/manage-api-key</a></li>
+    <li><strong>Local (Ollama):</strong> no key — <a href="https://ollama.com">ollama.com</a></li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <ul>
+    <li>API keys, conversations, and settings are stored locally in your browser only.</li>
+    <li>Requests go directly from your browser to the endpoint you select.</li>
+    <li>There is no server, no analytics, no accounts, no tracking.</li>
+    <li>Clearing your browser data deletes everything. Use <strong>export</strong> to back up.</li>
+  </ul>
+
+  <h2>Agentic Folder/File Coding</h2>
+  <ol>
+    <li>Click the <strong>folder icon</strong> next to the attachment button in the composer to link a location:
+      <ul>
+        <li><strong>Link a folder</strong> — the agent can list, read, write, search, and patch any file inside it.</li>
+        <li><strong>Link a file</strong> — the agent can read and write a single file directly.</li>
+      </ul>
+    </li>
+    <li>Once a folder or file is linked, every agent automatically becomes folder-aware for that chat and can read/write the linked location.</li>
+    <li>Ask the agent to do something with the project, e.g. "Create an about.html page" or "Refactor app.js to use async/await everywhere."</li>
+    <li>The agent runs an autonomous loop (read → plan → write → verify) until it emits a final answer. A live stop button lets you interrupt it.</li>
+  </ol>
+
+  <h2>Project Structure</h2>
+  <pre><code>index.html            App shell
+app.js                Chat UI, IndexedDB history, streaming, import/export, settings, folder wiring, routing
+providers.js          API connection presets and default agents
+model-router.js       Connection selection, API routing, streaming SSE parsing, fallback logic
+browser-agent.js      AI-driven browser control agent (fetch-based page extraction)
+agent-loop.js         Autonomous multi-step coding/writing/research loop with extra tools
+voice.js              Web Speech API + Whisper/TTS helpers
+tools.js              Image generation and web search API wrappers
+doc-parser.js         PDF/DOCX/text extraction and text chunking
+rag.js                Knowledge-base chunking, embedding, vector storage, retrieval
+memory.js             Lightweight agent memory layer (scoped notes)
+tool-parser.js        Shared XML/JSON tool call parser
+fs-tools.js           File System Access API wrapper (list, read, write, patch, search)
+db.js                 IndexedDB wrapper (conversations, folder handles, knowledge base)
+styles.css            Minimal responsive dark/light UI
+sw.js                 Service worker (app-shell precache + stale-while-revalidate)
+manifest.webmanifest  PWA manifest (installable)
+icons/                App icons (SVG + PNG)</code></pre>
+
+  <h2>License</h2>
+  <p>MIT — do whatever you want. Attribution appreciated.</p>
+
+  <hr />
+  <p style="color:var(--text-secondary);font-size:0.85rem"><a href="/ai/">&larr; Back to ChatAI</a> &middot; <a href="/ai/tech-doc/">Technical Documentation</a></p>
+</body>
+</html>
