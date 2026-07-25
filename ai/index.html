@@ -402,5 +402,43 @@
   </dialog>
 
   <script src="app.js" type="module"></script>
+
+  <!-- SEO content -->
+  <section class="seo-content" style="max-width:720px;margin:2rem auto;padding:0 1rem 4rem;color:var(--text-secondary,#86868b);font-family:system-ui,-apple-system,sans-serif;line-height:1.7;font-size:0.9rem">
+    <h2 style="font-size:1.3rem;color:var(--text,#1d1d1f);margin-bottom:0.5rem">About ChatAI</h2>
+    <p>ChatAI is a minimal, trustworthy, <strong>offline-first</strong> AI chatbox PWA you can self-host on GitHub Pages or any static host. Add your own API connections and agents/prompts, then switch between them from the composer — or let the app pick automatically based on your first message.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Key Features</h3>
+    <ul style="padding-left:1.2rem;margin:0.5rem 0">
+      <li><strong>Works offline</strong> — the app shell, your conversations, and your settings all load with no network.</li>
+      <li><strong>Local-only privacy</strong> — every chat, setting, and API key lives in your browser (IndexedDB + localStorage). Nothing is sent to any server except the API endpoint you choose.</li>
+      <li><strong>Single-file import/export</strong> — download all conversations + settings as one JSON file, and import it back on any device.</li>
+      <li><strong>Connection-based</strong> — add as many API endpoints as you want (OpenAI, Anthropic, Ollama, Gemini, and 20+ more), enable or disable each one, and switch quickly from the composer.</li>
+      <li><strong>Agent-based prompts</strong> — create multiple system prompts and pick one per chat, or let the app auto-select based on the first message.</li>
+      <li><strong>Installable</strong> — add to home screen / desktop as a PWA.</li>
+      <li><strong>Open source</strong> — clone and self-host as your own SaaS in minutes.</li>
+    </ul>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Voice Input &amp; Output</h3>
+    <p>Use the mic button in the composer to start voice recording — click to start, click again to stop. Uses the free browser Web Speech API by default (Chrome/Edge), with optional Whisper API. A speaker button appears on assistant messages when text-to-speech is enabled, supporting browser speech, OpenAI TTS, or ElevenLabs.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Image Generation &amp; Web Search</h3>
+    <p>Ask for an image (e.g. "draw a cat") and the app automatically routes to an enabled DALL·E or Stability AI connection. Select the Web Researcher agent (or ask a search-style question) and the app calls Tavily, Brave Search, or SerpApi, then asks your chat model to answer with source citations.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">RAG Knowledge Base</h3>
+    <p>In Settings → Knowledge base, choose an embedding provider and upload PDF, DOCX, TXT, MD, CSV, or HTML documents. The app chunks, embeds, and stores vectors locally in IndexedDB. Ask the Knowledge Base Researcher agent to retrieve relevant excerpts and answer from your uploaded files.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Agentic Folder/File Coding</h3>
+    <p>Link a folder or file in the composer and the autonomous agent loop can read, write, search, and patch files using the browser File System Access API (Chrome/Edge desktop). The agent runs an autonomous loop — read, plan, write, verify — until it emits a final answer, with a live stop button to interrupt.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Supported Providers</h3>
+    <p>OpenAI, Anthropic Claude, Google Gemini, Azure OpenAI, AWS Bedrock, Google Cloud Vertex AI, Ollama, Moonshot Kimi, Zhipu GLM, MiniMax, NVIDIA, Alibaba Qwen, OpenRouter, Groq, Together AI, Fireworks AI, Cohere, Mistral AI, DeepSeek, Perplexity, xAI Grok, AI21 Labs, Anyscale, Replicate, Hugging Face, Cloudflare Workers AI, and any OpenAI-compatible endpoint.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">Privacy</h3>
+    <p>API keys, conversations, and settings are stored locally in your browser only. Requests go directly from your browser to the endpoint you select. There is no server, no analytics, no accounts, no tracking. Clearing your browser data deletes everything — use export to back up.</p>
+
+    <h3 style="font-size:1.1rem;color:var(--text,#1d1d1f);margin:1.5rem 0 0.5rem">License</h3>
+    <p>MIT — do whatever you want. Attribution appreciated.</p>
+  </section>
 </body>
 </html>

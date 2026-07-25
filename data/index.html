@@ -57,5 +57,41 @@
   <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
   <body>
     <div id="root"></div>
+
+    <!-- SEO content -->
+    <section class="seo-content" style="max-width:720px;margin:2rem auto;padding:0 1rem 4rem;color:#64748b;font-family:system-ui,-apple-system,sans-serif;line-height:1.7;font-size:0.9rem">
+      <h2 style="font-size:1.3rem;color:#0f172a;margin-bottom:0.5rem">About ETL Studio</h2>
+      <p>ETL Studio is a free, browser-based data preparation tool powered by <strong>DuckDB WASM</strong>. Clean, filter, transform, and analyze your data entirely in your browser — <strong>100% private</strong>, with nothing ever uploaded to any server.</p>
+
+      <h3 style="font-size:1.1rem;color:#0f172a;margin:1.5rem 0 0.5rem">Key Features</h3>
+      <ul style="padding-left:1.2rem;margin:0.5rem 0">
+        <li><strong>100% private</strong> — your data never leaves your device. No upload, no server, no account needed.</li>
+        <li><strong>Powered by DuckDB WASM</strong> — a full SQL analytics engine running in your browser via WebAssembly.</li>
+        <li><strong>No installation</strong> — works in any modern browser. Open the page and start working immediately.</li>
+        <li><strong>Multiple data sources</strong> — load CSV, Parquet, JSON, and other formats directly from your local files.</li>
+        <li><strong>SQL transformations</strong> — filter, aggregate, join, and reshape your data using standard SQL.</li>
+        <li><strong>Visual data exploration</strong> — browse, sort, and preview your datasets before and after transformations.</li>
+        <li><strong>Export results</strong> — download cleaned and transformed data in your preferred format.</li>
+        <li><strong>Open source</strong> — built with DuckDB WASM and modern web technologies.</li>
+      </ul>
+
+      <h3 style="font-size:1.1rem;color:#0f172a;margin:1.5rem 0 0.5rem">Use Cases</h3>
+      <ul style="padding-left:1.2rem;margin:0.5rem 0">
+        <li><strong>Data cleaning</strong> — remove duplicates, handle missing values, standardize formats.</li>
+        <li><strong>Data transformation</strong> — pivot, aggregate, join datasets, and create calculated fields.</li>
+        <li><strong>Quick analysis</strong> — run ad-hoc SQL queries on your data without setting up a database.</li>
+        <li><strong>Prototyping</strong> — explore and prepare data before moving to production pipelines.</li>
+        <li><strong>Privacy-sensitive work</strong> — handle sensitive data that cannot be uploaded to cloud services.</li>
+      </ul>
+
+      <h3 style="font-size:1.1rem;color:#0f172a;margin:1.5rem 0 0.5rem">How It Works</h3>
+      <p>ETL Studio loads DuckDB — a high-performance, embeddable SQL OLAP database — directly in your browser via WebAssembly. When you load a file, it's read locally and imported into an in-memory DuckDB database. All SQL queries and transformations run on your machine. Nothing is sent over the network. When you're done, export your results as a file download.</p>
+
+      <h3 style="font-size:1.1rem;color:#0f172a;margin:1.5rem 0 0.5rem">Privacy</h3>
+      <p>Your data never leaves your device. There is no server, no analytics, no accounts, no tracking. ETL Studio is a purely client-side application — all processing happens in your browser's WebAssembly runtime.</p>
+
+      <h3 style="font-size:1.1rem;color:#0f172a;margin:1.5rem 0 0.5rem">License</h3>
+      <p>MIT — do whatever you want. Attribution appreciated.</p>
+    </section>
   </body>
 </html>
