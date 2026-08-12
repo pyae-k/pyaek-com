@@ -1,27 +1,40 @@
 {
   "name": "Pyae Phyo Kyaw — Free Tools",
-  "short_name": "Pyae Phyo Kyaw",
+  "short_name": "Free Tools",
   "description": "Free, simple tools that work offline. No account needed. Your data never leaves your device.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "orientation": "portrait",
+  "id": "/",
+  "lang": "en",
+  "categories": ["productivity", "utilities", "tools"],
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "/assets/icons/favicon.ico",
       "sizes": "32x32",
-      "type": "image/x-icon"
+      "type": "image/x-icon",
+      "purpose": "any"
     },
     {
-      "src": "icon-192.svg",
+      "src": "/assets/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "icon-512.svg",
+      "src": "/assets/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

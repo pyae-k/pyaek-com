@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme flash prevention -->
+  <script>(function(){document.documentElement.setAttribute("data-theme","light");})();</script>
+  <!-- Standard meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Blog">
+  <!-- SEO -->
+  <title>Qwen3.8-Max: China's Open-Weight Frontier Model Explained — Pyaek</title>
+  <meta name="title" content="Qwen3.8-Max: China's Open-Weight Frontier Model Explained — Pyaek">
+  <meta name="description" content="Alibaba released Qwen3.8-Max, a 2.4-trillion-parameter mixture-of-experts model with a 1M-token context window, as its first open-weight Max-class flagship. It claims to rival GPT-5.6 Sol Max and Claude Fable 5 on agentic computer use — at a fraction of the price.">
+  <meta name="author" content="Pyae Phyo Kyaw">
+  <meta name="keywords" content="blog, AI, Alibaba, Qwen, open source, China, LLM, mixture of experts, benchmarks">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://pyaek.com/apps/blog/2026/08/alibaba-qwen3-8-max-open-weights/">
+  <link rel="sitemap" href="/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="Blog — Pyaek" href="https://pyaek.com/apps/blog/feed.xml">
+  <!-- OG -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pyaek.com/apps/blog/2026/08/alibaba-qwen3-8-max-open-weights/">
+  <meta property="og:title" content="Qwen3.8-Max: China's Open-Weight Frontier Model Explained">
+  <meta property="og:description" content="Alibaba released Qwen3.8-Max, a 2.4-trillion-parameter mixture-of-experts model with a 1M-token context window, as its first open-weight Max-class flagship. It claims to rival GPT-5.6 Sol Max and Claude Fable 5 on agentic computer use — at a fraction of the price.">
+  <meta property="og:image" content="https://pyaek.com/apps/blog/assets/images/alibaba-qwen3-8-max-open-weights.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Qwen3.8-Max: China's Open-Weight Frontier Model Explained">
+  <meta property="og:site_name" content="Pyae Phyo Kyaw">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-08-08T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-08-08T00:00:00+00:00">
+  <meta property="article:author" content="https://pyaek.com/apps/about/">
+  <meta property="article:section" content="tech">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Alibaba">
+  <meta property="article:tag" content="Qwen">
+  <meta property="article:tag" content="open source">
+  <meta property="article:tag" content="China">
+  <meta property="article:tag" content="LLM">
+  <meta property="article:tag" content="mixture of experts">
+  <meta property="article:tag" content="benchmarks">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qwen3.8-Max: China's Open-Weight Frontier Model Explained">
+  <meta name="twitter:description" content="Alibaba released Qwen3.8-Max, a 2.4-trillion-parameter mixture-of-experts model with a 1M-token context window, as its first open-weight Max-class flagship. It claims to rival GPT-5.6 Sol Max and Claude Fable 5 on agentic computer use — at a fraction of the price.">
+  <meta name="twitter:image" content="https://pyaek.com/apps/blog/assets/images/alibaba-qwen3-8-max-open-weights.png">
+  <meta name="twitter:image:alt" content="Qwen3.8-Max: China's Open-Weight Frontier Model Explained">
+  <!-- Icons & manifest -->
+  <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/apps/blog/manifest.json">
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Qwen3.8-Max: China's Open-Weight Frontier Model Explained",
+    "description": "Alibaba released Qwen3.8-Max, a 2.4-trillion-parameter mixture-of-experts model with a 1M-token context window, as its first open-weight Max-class flagship. It claims to rival GPT-5.6 Sol Max and Claude Fable 5 on agentic computer use — at a fraction of the price.",
+    "datePublished": "2026-08-08",
+    "dateModified": "2026-08-08",
+    "author": { "@type": "Person", "name": "Pyae Phyo Kyaw", "url": "https://pyaek.com/apps/about/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Pyae Phyo Kyaw",
+      "url": "https://pyaek.com",
+      "logo": { "@type": "ImageObject", "url": "https://pyaek.com/assets/icons/apple-touch-icon.png", "width": 180, "height": 180 }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://pyaek.com/apps/blog/2026/08/alibaba-qwen3-8-max-open-weights/" },
+    "image": "https://pyaek.com/apps/blog/assets/images/alibaba-qwen3-8-max-open-weights.png",
+    "url": "https://pyaek.com/apps/blog/2026/08/alibaba-qwen3-8-max-open-weights/",
+    "inLanguage": "en-US",
+    "articleSection": "tech"
+  }
+  </script>
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pyaek.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://pyaek.com/apps/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Qwen3.8-Max: China's Open-Weight Frontier Model Explained",
+        "item": "https://pyaek.com/apps/blog/2026/08/alibaba-qwen3-8-max-open-weights/"
+      }
+    ]
+  }
+  </script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="glass-header">
+    <div class="header-inner">
+      <a href="../../../" class="app-title">Blog</a>
+      <div class="doc-btn-group" aria-label="Documentation and contact">
+        <a class="doc-btn" href="/apps/blog/readme/" title="README documentation" aria-label="README documentation">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </a>
+        <a class="doc-btn" href="/apps/blog/tech-doc/" title="Technical documentation" aria-label="Technical documentation">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </a>
+        <a class="doc-btn" href="mailto:hello@pyaek.com" title="Contact hello@pyaek.com" aria-label="Contact hello@pyaek.com">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+        </a>
+      </div>
+      <div class="header-filters" role="group" aria-label="Filter by category">
+        <button class="header-filter-btn active" data-filter="all">All</button>
+        <button class="header-filter-btn" data-filter="finance">Finance</button>
+        <button class="header-filter-btn" data-filter="tech">Tech</button>
+      </div>
+      <div class="header-search" role="search">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search posts…" aria-label="Search blog posts">
+      </div>
+      <button class="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg class="theme-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-detail">
+      <div class="post-detail-header">
+        <h1 class="post-detail-title">Qwen3.8-Max: China's Open-Weight Frontier Model Explained</h1>
+        <div class="post-detail-meta">
+          <span class="blog-card-category" data-category="tech">tech</span>
+          <span>Aug 8, 2026</span>
+          <span>7 min read</span>
+          <span>By <a class="post-detail-author" href="/apps/about/">Pyae Phyo Kyaw</a></span>
+        </div>
+      </div>
+      <div class="post-detail-body">
+<p>On 3 August 2026, Alibaba unveiled Qwen3.8-Max, the largest and most capable model in its Qwen family: a 2.4-trillion-parameter mixture-of-experts (MoE) model with a 1-million-token context window [1][2]. The size is not the headline, though. For the first time, Alibaba is releasing a Max-class flagship as open weights, putting a model it claims rivals GPT-5.6 Sol Max and Claude Fable 5 on agentic computer use into the hands of any developer who wants to self-host it [1][4][7]. This post breaks down what the model is, why the open-weights decision matters, and what it means for the US-China AI race.</p>
+<figure><svg viewBox="0 0 400 320" role="img" aria-label="Story at a glance: flowchart from the Qwen3.8-Max launch event, to its impact, to the DeepSeek R1 historical parallel, to the future outlook" xmlns="http://www.w3.org/2000/svg"><style>.flow-box{fill:var(--color-surface,#F5F5F5);stroke:var(--color-border,#E0E0E0);stroke-width:1}.flow-title{fill:var(--color-accent,#0071E3);font-size:12px;font-weight:700;font-family:var(--font-sans,system-ui,sans-serif)}.flow-text{fill:var(--color-text,#1A1A1A);font-size:11px;font-family:var(--font-sans,system-ui,sans-serif)}.flow-arrow{stroke:var(--color-text-secondary,#6B6B6B);stroke-width:1.5}</style><rect class="flow-box" x="20" y="8" width="360" height="58" rx="8"/><text class="flow-title" x="30" y="24">EVENT · Aug 3, 2026</text><text class="flow-text" x="30" y="40">Alibaba releases Qwen3.8-Max: a 2.4T-parameter</text><text class="flow-text" x="30" y="55">MoE model with a 1M-token context window</text><line class="flow-arrow" x1="200" y1="66" x2="200" y2="78"/><polygon class="flow-arrow" points="196,76 200,84 204,76"/><rect class="flow-box" x="20" y="84" width="360" height="58" rx="8"/><text class="flow-title" x="30" y="100">IMPACT</text><text class="flow-text" x="30" y="116">First Max-class Qwen released as open weights;</text><text class="flow-text" x="30" y="131">claims top agentic computer use, undercuts US prices</text><line class="flow-arrow" x1="200" y1="142" x2="200" y2="154"/><polygon class="flow-arrow" points="196,152 200,160 204,152"/><rect class="flow-box" x="20" y="160" width="360" height="58" rx="8"/><text class="flow-title" x="30" y="176">HISTORICAL PARALLEL</text><text class="flow-text" x="30" y="192">DeepSeek R1 (Jan 2025): an open-weight Chinese</text><text class="flow-text" x="30" y="207">model that shook US assumptions about AI</text><line class="flow-arrow" x1="200" y1="218" x2="200" y2="230"/><polygon class="flow-arrow" points="196,228 200,236 204,228"/><rect class="flow-box" x="20" y="236" width="360" height="58" rx="8"/><text class="flow-title" x="30" y="252">FUTURE OUTLOOK</text><text class="flow-text" x="30" y="268">Open vs closed frontier race intensifies;</text><text class="flow-text" x="30" y="283">license terms and verification still pending</text></svg><figcaption>Story at a glance: from the Qwen3.8-Max launch to its impact, the DeepSeek R1 parallel, and the open questions ahead.</figcaption></figure>
+<h2>What: the biggest Qwen yet</h2>
+<p>Qwen3.8-Max is a sparse mixture-of-experts model with 2.4 trillion total parameters, of which roughly 95 billion are active for any given token [2][4][5]. The MoE design is what makes a 2.4-trillion-parameter model practical: instead of running every parameter for every token, a router selects a small subset of experts, keeping inference cost closer to a much smaller dense model. The model handles a 1-million-token context window and is multimodal — text, images, video, and documents [1][2][5]. Alibaba says it can analyse videos longer than 100 hours and documents over 200 pages in a single pass [5].</p>
+<table>
+<caption>Table 1: Qwen3.8-Max at a glance. Sources: Reuters, Alibaba Cloud, QwenCloud [1][2][3][6].</caption>
+<thead><tr><th>Spec</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Total parameters</td><td>2.4 trillion</td></tr>
+<tr><td>Active parameters per token</td><td>95 billion</td></tr>
+<tr><td>Context window</td><td>1,000,000 tokens</td></tr>
+<tr><td>Architecture</td><td>Sparse mixture-of-experts (MoE)</td></tr>
+<tr><td>Modality</td><td>Text, image, video, documents</td></tr>
+<tr><td>Release date</td><td>August 3, 2026</td></tr>
+<tr><td>API price (per 1M tokens)</td><td>$2 input / $6 output</td></tr>
+</tbody>
+</table>
+<h2>Why: the first open-weight Max-class model</h2>
+<p>Alibaba has open-sourced smaller Qwen models for years, but the Max line — its flagship tier — has always been closed, available only through the QwenCloud API. Qwen3.8-Max breaks that pattern. Alibaba says the weights will be released the week after launch on ModelScope and Hugging Face, making it the first Max-class Qwen model available for self-hosted deployment [1][4][5][7].</p>
+<p>The catch: licensing terms were not disclosed at launch [1][5]. A permissive license such as Apache 2.0 would let anyone fine-tune and commercialise the model; a custom license could impose restrictions. That single decision will shape how much of the open-source ecosystem actually adopts it — and how much of a threat it poses to closed US models.</p>
+<h2>Who: the players</h2>
+<p>The launch lands in the middle of an intensifying race among Chinese AI labs. Moonshot AI's Kimi K3, at 2.8 trillion parameters, is slightly larger and also open-weight [1]. DeepSeek, ByteDance, and Zhipu are all shipping open-weight frontier-class models, and Chinese labs now publish parameter counts while their US counterparts keep them under wraps [1]. Alibaba's own positioning is blunt: "We believe it's one of the most powerful model available today, compatible to leading frontier AI models, second only to Fable 5" [4].</p>
+<h2>When and where: Hangzhou, 3 August 2026</h2>
+<p>Alibaba unveiled Qwen3.8-Max on 3 August 2026 in Hangzhou, where the Qwen team is based [1][2]. The model is available immediately through QwenCloud at $2 per million input tokens and $6 per million output tokens, with flat pricing across the full 1-million-token context window [6]. The open weights follow "next week" on ModelScope and Hugging Face [1][2][5].</p>
+<h2>Which: how it stacks up</h2>
+<p>Alibaba's benchmark claims are the boldest part of the launch. On OSWorld-Verified, a benchmark for agentic computer use, Alibaba reports Qwen3.8-Max at 86.1, ahead of Claude Fable 5 (85.0) and GPT-5.6 Sol Max (83.2) [7]. On PaperBench, a research-reproduction benchmark, it reports 93.0, ahead of GPT-5.6 Sol (90.5) and Fable 5 (88.8) [7]. These are vendor-reported numbers from Alibaba's own launch materials, and independent verification is still pending [7]. On other benchmarks the picture is more mixed: Fable 5 still leads on several software-engineering tests [7]. On Arena.AI's text leaderboard, Qwen3.8-Max immediately became the highest-ranking Chinese model, though it still trails Anthropic's Claude Fable 5 and Opus variants; on the vision leaderboard it ranks second globally, behind only a Fable 5 variant [1].</p>
+<table>
+<caption>Table 2: Agentic computer use and research benchmarks, vendor-reported. Source: The SaaS Sentinel [7].</caption>
+<thead><tr><th>Model</th><th>OSWorld-Verified</th><th>PaperBench</th></tr></thead>
+<tbody>
+<tr><td>Qwen3.8-Max</td><td>86.1</td><td>93.0</td></tr>
+<tr><td>Claude Fable 5</td><td>85.0</td><td>88.8</td></tr>
+<tr><td>GPT-5.6 Sol Max</td><td>83.2</td><td>90.5</td></tr>
+</tbody>
+</table>
+<p>Pricing is where the comparison is unambiguous. At $2 per million input tokens and $6 per million output tokens, Qwen3.8-Max undercuts GPT-5.6 Sol ($5/$30) and Claude Opus 5 ($5/$25) by a wide margin [6][11]. For cost-sensitive production workloads, that is a material difference — roughly 60% cheaper on input and 80% cheaper on output than GPT-5.6 Sol [11].</p>
+<table>
+<caption>Table 3: Frontier API pricing per 1 million tokens. Sources: QwenCloud, TheRouter.ai [6][11].</caption>
+<thead><tr><th>Model</th><th>Input</th><th>Output</th></tr></thead>
+<tbody>
+<tr><td>Qwen3.8-Max</td><td>$2.00</td><td>$6.00</td></tr>
+<tr><td>GPT-5.6 Sol</td><td>$5.00</td><td>$30.00</td></tr>
+<tr><td>Claude Opus 5</td><td>$5.00</td><td>$25.00</td></tr>
+</tbody>
+</table>
+<h2>How: what it can do</h2>
+<p>Alibaba's launch materials emphasise long-horizon autonomy. In an internal test, the model ran a self-evolving software engineering project for 16 days without human help, producing a framework called oh-my-cli [3][4]. On the E-Commerce Bench, Alibaba reports a 4.16x return on starting capital in a simulated year-long business [3]. It also posts strong scores on academic benchmarks such as AIME24 (52.29%) and the WWW2025 Challenge (0.853 accuracy) [3]. Treat these as marketing claims until third parties reproduce them — but they signal where Alibaba is pushing: models that can be trusted to work for days, not minutes.</p>
+<h2>Historical parallel: DeepSeek R1 and the open-weight shock</h2>
+<p>The obvious precedent is DeepSeek R1, released in January 2025. R1 matched OpenAI's o1 on key reasoning benchmarks while being built at a fraction of the cost, and it was released as open weights [9][10]. The release forced a reckoning about whether US export controls were working as intended — instead of crippling China's AI, they pushed labs toward extreme efficiency [9]. DeepSeek trained its V3 base model for a claimed under $6 million, using GRPO, a cheap reinforcement-learning algorithm, and assembler-level optimisation of Nvidia chips [10]. R1 "pulled back the curtain" on how reasoning models are built, showing they are cheaper and easier than Silicon Valley assumed [10].</p>
+<p>Qwen3.8-Max is the next escalation. Where R1 proved Chinese labs could match US reasoning models on a budget, Qwen3.8-Max argues they can match US frontier models at full scale — and then give the weights away. The difference in ambition is the story: R1 was a cost-optimised challenger; Qwen3.8-Max is a full-size flagship. And it is not alone — Kimi K3, DeepSeek, and GLM are all pushing the same direction, which means the open-weight frontier is becoming a Chinese-led category [1].</p>
+<h2>What next: the open questions</h2>
+<p>Three things decide what Qwen3.8-Max actually changes. First, the weights: they are promised but not yet out, and the license terms are undisclosed [1][5]. Second, verification: the headline benchmark numbers are vendor-reported, and independent evaluations will take weeks [7]. Third, the response: OpenAI and Anthropic have so far kept frontier weights closed, betting that capability and safety justify the walled garden. If Qwen3.8-Max holds up under independent testing, that bet gets harder to defend — and the open-source versus closed-source frontier debate, which DeepSeek reopened in January 2025, moves decisively in the open direction. For developers, the near-term win is simpler: a frontier-class model at a fraction of the price, with the option to run it yourself.</p>
+<h2>References</h2>
+<ol>
+<li><a href="https://tech.yahoo.com/ai/articles/alibaba-unveils-most-capable-ai-035830076.html" target="_blank" rel="noopener noreferrer">Reuters via Yahoo Tech — Alibaba unveils its most capable AI model to date, not far behind Moonshot's in size</a></li>
+<li><a href="https://www.alibabacloud.com/press-room/alibaba-unveils-qwen3-8-max" target="_blank" rel="noopener noreferrer">Alibaba Cloud — Alibaba Unveils Qwen3.8-Max: Its Largest and Most Capable Flagship Model to Date</a></li>
+<li><a href="https://www.alibabacloud.com/blog/qwen3-8-max-a-new-bar-for-coding-and-cowork_603421" target="_blank" rel="noopener noreferrer">Alibaba Cloud Community — Qwen3.8-Max: A New Bar for Coding and Cowork</a></li>
+<li><a href="https://www.infoworld.com/article/4204415/alibaba-takes-aim-at-openai-and-anthropic-with-qwen3-8-max-launch.html" target="_blank" rel="noopener noreferrer">InfoWorld — Alibaba says Qwen3.8-Max coded autonomously for 16 days</a></li>
+<li><a href="https://the-decoder.com/alibabas-open-weight-qwen3-8-max-takes-on-long-horizon-ai-tasks-with-2-4-trillion-parameters/" target="_blank" rel="noopener noreferrer">The Decoder — Alibaba's open-weight Qwen3.8-Max takes on long-horizon AI tasks with 2.4 trillion parameters</a></li>
+<li><a href="https://www.qwencloud.com/models/qwen3.8-max" target="_blank" rel="noopener noreferrer">QwenCloud — Qwen3.8-Max official model page</a></li>
+<li><a href="https://saassentinel.com/2026/08/04/alibaba-releases-qwen3-8-max-claims-top-spot-in-agentic-computer-use-benchmarks/" target="_blank" rel="noopener noreferrer">The SaaS Sentinel — Alibaba Releases Qwen3.8-Max, Claims Top Spot in Agentic Computer Use Benchmarks</a></li>
+<li><a href="https://finance.yahoo.com/technology/ai/articles/alibaba-drops-another-china-ai-022150118.html" target="_blank" rel="noopener noreferrer">Bloomberg via Yahoo Finance — Alibaba Drops Another China AI Model With Breakthrough Performance</a></li>
+<li><a href="https://www.technologyreview.com/2025/01/24/1110526/china-deepseek-top-ai-despite-sanctions/" target="_blank" rel="noopener noreferrer">MIT Technology Review — How Chinese company DeepSeek released a top AI reasoning model despite US sanctions</a></li>
+<li><a href="https://www.technologyreview.com/2025/01/31/1110740/how-deepseek-ripped-up-the-ai-playbook-and-why-everyones-going-to-follow-it/" target="_blank" rel="noopener noreferrer">MIT Technology Review — How DeepSeek ripped up the AI playbook — and why everyone's going to follow it</a></li>
+<li><a href="https://therouter.ai/blog/qwen38-max-vs-gpt-56-claude-opus-frontier-model-comparison/" target="_blank" rel="noopener noreferrer">TheRouter.ai — Qwen3.8-Max vs GPT-5.6 Sol vs Claude Opus 5: Frontier Model API Comparison for Developers (2026)</a></li>
+</ol>
+<h2>Disclaimer</h2>
+<p>Benchmark figures in this post are vendor-reported as of 8 August 2026 and have not been independently verified. Model names, prices, and availability change quickly; check primary sources before making decisions.</p>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <div class="contact-line">
+      <a href="https://wa.me/66804011824" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <a href="mailto:hello@pyaek.com" aria-label="Email">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <a href="https://www.linkedin.com/in/pyaek" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <a href="https://github.com/pyae-k" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="license-notice">&copy; 2026 <a href="/apps/about/">Pyae Phyo Kyaw</a>. <a href="https://github.com/pyae-k/pyaek-com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
+  </footer>
+  <script>
+  // Theme toggle handler
+  (function() {
+    var toggle = document.querySelector('.theme-toggle');
+    var icon = toggle && toggle.querySelector('.theme-toggle-icon');
+    function setIcon(mode) {
+      if (!icon) return;
+      icon.innerHTML = mode === 'dark'
+        ? '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    setIcon(current);
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        toggle.setAttribute('aria-label', 'Switch to ' + (next === 'dark' ? 'light' : 'dark') + ' mode');
+        toggle.setAttribute('title', 'Switch to ' + (next === 'dark' ? 'light' : 'dark') + ' mode');
+        setIcon(next);
+      });
+    }
+  })();
+
+  // Header nav: filter/search navigate to the blog index
+  (function() {
+    var base = "../../../";
+    document.querySelectorAll(".header-filter-btn").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var f = btn.dataset.filter;
+        location.href = f === "all" ? base : base + "?filter=" + f;
+      });
+    });
+    var searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+          var q = searchInput.value.trim();
+          location.href = q ? base + "?q=" + encodeURIComponent(q) : base;
+        }
+      });
+    }
+  })();
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("/apps/blog/sw.js", { scope: "/apps/blog/" }).catch(function() {});
+    });
+  }
+  </script>
+</body>
+</html>

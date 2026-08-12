@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+  (function() {
+    document.documentElement.setAttribute("data-theme", "light");
+  })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="ChatAI">
+
+  <title>Page Not Found — ChatAI</title>
+  <meta name="description" content="Page not found. The page you're looking for doesn't exist. Return to ChatAI.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://pyaek.com/apps/ai/404.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pyaek.com/apps/ai/404.html">
+  <meta property="og:title" content="Page Not Found — ChatAI">
+  <meta property="og:description" content="The page you're looking for doesn't exist. Return to ChatAI.">
+  <meta property="og:image" content="https://pyaek.com/assets/images/og-image.png">
+  <meta property="og:site_name" content="Pyae Phyo Kyaw">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Page Not Found — ChatAI">
+  <meta name="twitter:description" content="The page you're looking for doesn't exist. Return to ChatAI.">
+  <meta name="twitter:image" content="https://pyaek.com/assets/images/og-image.png">
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Page Not Found",
+    "url": "https://pyaek.com/apps/ai/404.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Pyae Phyo Kyaw",
+      "url": "https://pyaek.com"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    .not-found { text-align: center; padding: var(--space-3xl) var(--space-md); }
+    .not-found h1 { font-size: var(--text-2xl); margin-bottom: var(--space-md); }
+    .not-found p { color: var(--color-text-secondary); margin-bottom: var(--space-lg); }
+    .not-found a { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle theme-toggle--floating" aria-label="Switch to dark mode" title="Toggle theme">
+    <svg class="theme-toggle-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+  <main id="main">
+    <div class="not-found">
+      <h1>Page not found</h1>
+      <p>The page you're looking for doesn't exist.</p>
+      <a href="/apps/ai/">Go to ChatAI</a>
+    </div>
+  </main>
+
+  <script src="/assets/js/script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("./sw.js").catch(function() {});
+    });
+  }
+  </script>
+</body>
+</html>
