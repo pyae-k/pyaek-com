@@ -64,11 +64,10 @@
     return post.date.slice(0, 7).replace("-", "/") + "/" + post.id + "/";
   }
 
-  // Scroll the fixed-screen content area back to the top — the page itself
-  // never scrolls, main is the scroll container
+  // Scroll the page back to the top after a filter/pagination change. The
+  // document scrolls naturally now (no fixed-screen shell), so scroll window.
   function scrollMainToTop() {
-    var main = document.querySelector("main");
-    if (main) main.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   // Reflect the current page in the URL (?page=), preserving ?filter= and ?q=

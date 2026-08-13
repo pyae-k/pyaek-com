@@ -1,122 +1,57 @@
-/* Viewport-relative sizing for single-page fit */
-:root {
-  --vp-avatar: clamp(32px, 8dvh, 80px);
-  --vp-h1: clamp(16px, 4dvh, 42px);
-  --vp-subtitle: clamp(10px, 2dvh, 18px);
-  --vp-stats-icon: clamp(10px, 2.5dvh, 20px);
-  --vp-stats-text: clamp(8px, 1.8dvh, 14px);
-  --vp-card-icon-box: clamp(20px, 5dvh, 48px);
-  --vp-card-icon-svg: clamp(10px, 2.5dvh, 24px);
-  --vp-card-label: clamp(8px, 2dvh, 16px);
-  --vp-card-desc: clamp(7px, 1.5dvh, 12px);
-  --vp-card-padding: clamp(6px, 2.5dvh, 24px);
-  --vp-contact-text: clamp(8px, 1.8dvh, 14px);
-  --vp-contact-icon: clamp(8px, 2dvh, 16px);
-  --vp-license-text: clamp(7px, 1.5dvh, 12px);
-  --vp-section-header: clamp(7px, 1.8dvh, 14px);
-  --vp-badge: clamp(7px, 1.2dvh, 10px);
-  --vp-space-xs: clamp(2px, 0.5dvh, 4px);
-  --vp-space-sm: clamp(3px, 0.8dvh, 8px);
-  --vp-space-md: clamp(6px, 1.5dvh, 16px);
-  --vp-space-lg: clamp(8px, 2dvh, 24px);
-  --vp-space-xl: clamp(10px, 2.5dvh, 32px);
-  --vp-section-gap: clamp(6px, 1.5dvh, 16px);
-}
-
-/* Width-based viewport properties for narrow viewports */
-:root {
-  --vpw-avatar: clamp(32px, 12dvw, 80px);
-  --vpw-h1: clamp(16px, 6dvw, 42px);
-  --vpw-subtitle: clamp(10px, 3.5dvw, 18px);
-  --vpw-stats-icon: clamp(10px, 4dvw, 20px);
-  --vpw-stats-text: clamp(8px, 3dvw, 14px);
-  --vpw-card-icon-box: clamp(20px, 8dvw, 40px);
-  --vpw-card-icon-svg: clamp(10px, 4dvw, 20px);
-  --vpw-card-label: clamp(8px, 3.5dvw, 14px);
-  --vpw-card-desc: clamp(7px, 2.5dvw, 11px);
-  --vpw-card-padding: clamp(6px, 4dvw, 20px);
-  --vpw-contact-text: clamp(8px, 3dvw, 14px);
-  --vpw-contact-icon: clamp(8px, 3.5dvw, 16px);
-  --vpw-license-text: clamp(7px, 2.5dvw, 12px);
-  --vpw-section-header: clamp(7px, 3dvw, 14px);
-  --vpw-badge: clamp(7px, 2dvw, 10px);
-  --vpw-space-xs: clamp(2px, 1dvw, 4px);
-  --vpw-space-sm: clamp(3px, 1.5dvw, 8px);
-  --vpw-space-md: clamp(6px, 2.5dvw, 16px);
-  --vpw-space-lg: clamp(8px, 3.5dvw, 24px);
-  --vpw-space-xl: clamp(10px, 4dvw, 32px);
-  --vpw-section-gap: clamp(6px, 2.5dvw, 16px);
-}
+/* ===========================================================================
+   Home page — natural scrolling layout.
+   No viewport-proportional sizing. Full-width content that scrolls naturally
+   on any device; the card grid uses auto-fill columns so cards keep a
+   comfortable ~250-300px width at any screen size. On laptop and larger
+   screens the page fits one viewport; the card grid absorbs leftover space
+   and centers its rows. On smaller screens it scrolls naturally.
+   =========================================================================== */
 
 .hero {
   text-align: center;
   width: 100%;
-  margin-bottom: 0;
 }
 
 .avatar {
-  width: var(--vp-avatar);
-  height: var(--vp-avatar);
+  width: 96px;      /* matches HTML width/height attrs */
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto var(--vp-space-sm);
+  margin: 0 auto var(--space-md);
   display: block;
   box-shadow: var(--shadow-sm);
 }
 
-h1 {
-  font-size: var(--vp-h1);
+.hero h1 {
+  font-size: 32px;
   font-weight: 700;
   letter-spacing: -0.021em;
-  line-height: 1.1;
-  margin-bottom: var(--vp-space-sm);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
 }
 
 .subtitle {
-  font-size: var(--vp-subtitle);
-  font-weight: 400;
+  font-size: 16px;
   color: var(--color-text-secondary);
-  line-height: 1.4;
-}
-
-.skills-line {
-  font-size: clamp(13px, 1.8vw, 15px);
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin-top: var(--vp-space-sm);
-  max-width: 100%;
-}
-
-.location-line {
-  font-size: clamp(14px, 2vw, 16px);
-  color: var(--color-accent);
-  font-weight: 500;
-  margin-top: var(--vp-space-sm);
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--vp-space-md);
-  width: 100%;
+  line-height: 1.5;
 }
 
 .stats-bar {
   display: flex;
   justify-content: center;
-  gap: var(--vp-space-lg);
-  margin-bottom: 0;
-  width: 100%;
   flex-wrap: wrap;
+  gap: var(--space-sm);
+  width: 100%;
 }
 
 .stats-item {
   display: flex;
   align-items: center;
-  gap: var(--vp-space-sm);
-  font-size: var(--vp-stats-text);
+  gap: var(--space-sm);
+  font-size: 14px;
+  line-height: 1.4;
   color: var(--color-text-secondary);
-  padding: var(--vp-space-sm) var(--vp-space-md);
+  padding: var(--space-sm) var(--space-md);
   background: var(--color-surface);
   border-radius: var(--border-radius-lg);
   border: var(--border-width) solid var(--color-border);
@@ -124,226 +59,61 @@ h1 {
 }
 
 .stats-icon {
-  width: var(--vp-stats-icon);
-  height: var(--vp-stats-icon);
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   color: var(--color-accent);
 }
 
-/* Half-screen / tablet: compact 2-column layout so the landing page fits one viewport */
-@media (max-width: 900px) {
-  :root {
-    --vp-avatar: var(--vpw-avatar);
-    --vp-h1: var(--vpw-h1);
-    --vp-subtitle: var(--vpw-subtitle);
-    --vp-stats-icon: var(--vpw-stats-icon);
-    --vp-stats-text: var(--vpw-stats-text);
-    --vp-card-icon-box: var(--vpw-card-icon-box);
-    --vp-card-icon-svg: var(--vpw-card-icon-svg);
-    --vp-card-label: var(--vpw-card-label);
-    --vp-card-desc: var(--vpw-card-desc);
-    --vp-card-padding: var(--vpw-card-padding);
-    --vp-contact-text: var(--vpw-contact-text);
-    --vp-contact-icon: var(--vpw-contact-icon);
-    --vp-license-text: var(--vpw-license-text);
-    --vp-section-header: var(--vpw-section-header);
-    --vp-badge: var(--vpw-badge);
-    --vp-space-xs: var(--vpw-space-xs);
-    --vp-space-sm: var(--vpw-space-sm);
-    --vp-space-md: var(--vpw-space-md);
-    --vp-space-lg: var(--vpw-space-lg);
-    --vp-space-xl: var(--vpw-space-xl);
-    --vp-section-gap: var(--vpw-section-gap);
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  :root {
-    --vpw-avatar: clamp(32px, 6dvw, 48px);
-    --vpw-h1: clamp(16px, 4dvw, 30px);
-    --vpw-subtitle: clamp(10px, 2.2dvw, 13px);
-    --vpw-stats-icon: clamp(10px, 2.2dvw, 14px);
-    --vpw-stats-text: clamp(8px, 1.8dvw, 11px);
-    --vpw-card-icon-box: clamp(16px, 4.5dvw, 28px);
-    --vpw-card-icon-svg: clamp(8px, 2.2dvw, 14px);
-    --vpw-card-label: clamp(7px, 2.2dvw, 11px);
-    --vpw-card-padding: clamp(4px, 1.2dvw, 6px);
-    --vpw-space-md: clamp(6px, 1dvw, 8px);
-    --vpw-space-lg: clamp(8px, 1.5dvw, 12px);
-    --vpw-section-gap: clamp(4px, 0.6dvw, 6px);
-  }
-
-  .card-desc { display: none; }
-
+.tools-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
 }
 
-/* Half-screen widths (tablet/split-screen): spread the landing-page content from
-   top to bottom and tighten spacing so the footer sits right below the cards. */
-@media (min-width: 481px) and (max-width: 1000px) {
-  .home-main {
-    justify-content: space-between;
-    padding: var(--space-md);
-    gap: var(--space-sm);
-  }
-  .home-main .hero { margin-bottom: 0; }
-  .home-main .avatar { margin-bottom: var(--vp-space-xs); }
-  .home-main h1 { margin-bottom: var(--vp-space-xs); }
-  .home-main .stats-bar { gap: var(--vp-space-sm); }
-  .home-main .stats-item { padding: var(--vp-space-xs) var(--vp-space-sm); }
-  .home-main .section-header { margin-bottom: var(--vp-space-xs); }
-  .home-main .tools-section { gap: var(--vp-space-xs); }
-  .home-main .card { padding: var(--space-md); }
-  .home-main + footer { padding: var(--vp-space-sm) var(--vp-space-md) var(--vp-space-sm); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
+  gap: var(--space-md);
+  width: 100%;
 }
 
-/* Half-screen: reduce card sizing for 2-column layout */
-@media (max-width: 700px) {
-  :root {
-    --vpw-card-icon-box: clamp(16px, 6dvw, 28px);
-    --vpw-card-icon-svg: clamp(8px, 3dvw, 14px);
-    --vpw-card-label: clamp(7px, 2.8dvw, 11px);
-    --vpw-card-desc: clamp(6px, 2.2dvw, 10px);
-    --vpw-card-padding: clamp(4px, 2.5dvw, 12px);
-    --vpw-badge: clamp(6px, 1.8dvw, 9px);
-  }
-  .card-desc { display: none; }
-}
-
-/* Mobile: width-based sizing, stacked layout */
-@media (max-width: 480px) {
+/* Desktop/large: one-page fit — the card grid absorbs leftover vertical space
+   so the footer sits at the bottom and the card rows center in the viewport.
+   On shorter screens the page scrolls naturally (no shrinking). */
+@media (min-width: 1024px) and (min-height: 720px) {
   .tools-section {
-    flex: 0 0 auto;
+    flex: 1 1 auto;   /* grow to fill, never shrink below content */
   }
-
   .cards {
-    grid-template-columns: 1fr;
-    gap: var(--vp-space-sm);
-    flex: 0 0 auto;
-  }
-
-  main {
-    padding: var(--vp-space-lg) var(--vp-space-sm);
-  }
-
-  .hero {
-    margin-bottom: var(--vp-space-md);
-    padding-top: calc(var(--vp-space-xl) + 44px);
-  }
-
-  /* Stats-bar: single column */
-  .stats-bar {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--vp-space-sm);
-  }
-
-  .stats-item {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-    padding: var(--vp-space-sm) var(--vp-space-md);
-  }
-
-  /* Footer: stack contact links vertically, hide separators */
-  .contact-line {
-    flex-direction: column;
-    gap: var(--vp-space-sm);
-  }
-
-  .sep {
-    display: none;
-  }
-
-  /* Hide card descriptions on mobile to fit one page */
-  .card-desc {
-    display: none;
-  }
-}
-
-/* Very narrow phones: further reduce sizing */
-@media (max-width: 360px) {
-  :root {
-    --vpw-h1: clamp(14px, 5.5dvw, 18px);
-    --vpw-subtitle: clamp(9px, 3dvw, 12px);
-    --vpw-card-desc: clamp(7px, 2.5dvw, 10px);
-    --vpw-card-label: clamp(8px, 3dvw, 14px);
-    --vpw-card-padding: clamp(6px, 3.5dvw, 16px);
-    --vpw-space-sm: clamp(3px, 1.2dvw, 6px);
-    --vpw-space-md: clamp(6px, 2dvw, 12px);
-    --vpw-space-lg: clamp(8px, 3dvw, 18px);
-    --vpw-space-xl: clamp(10px, 3.5dvw, 24px);
-  }
-
-  .stats-item {
-    max-width: 220px;
-  }
-}
-
-/* Very short viewports: compact cards */
-@media (max-height: 500px) {
-  .card {
-    padding: var(--vp-card-padding);
-  }
-
-  .card-icon {
-    width: var(--vp-card-icon-box);
-    height: var(--vp-card-icon-box);
-    margin-bottom: var(--vp-space-xs);
-  }
-
-  .card-icon svg {
-    width: var(--vp-card-icon-svg);
-    height: var(--vp-card-icon-svg);
-  }
-
-  .card-label {
-    font-size: var(--vp-card-label);
-    margin-bottom: var(--vp-space-xs);
-  }
-
-  .card-desc {
-    display: none;
-  }
-
-  .card-desc ul {
-    padding-left: var(--vp-space-md);
-  }
-
-  .card-desc li {
-    margin-bottom: 1px;
-  }
-}
-
-/* Short viewports: hide card descriptions to fit one page */
-@media (max-height: 650px) {
-  .card-desc {
-    display: none;
+    flex: 1;          /* grid fills the section */
+    align-content: center;  /* card rows center in the available space */
   }
 }
 
 footer {
   text-align: center;
-  padding: var(--vp-space-lg) var(--vp-space-md) var(--vp-space-lg);
+  padding: var(--space-lg) var(--space-md);
   border-top: var(--border-width) solid var(--color-border);
 }
 
 .contact-line {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 0;
-  font-size: var(--vp-contact-text);
+  font-size: 14px;  /* --text-sm size */
+  line-height: 1.4;
 }
 
 .contact-icon {
-  width: var(--vp-contact-icon);
-  height: var(--vp-contact-icon);
+  width: 14px;      /* matches HTML width/height attrs */
+  height: 14px;
   flex-shrink: 0;
   vertical-align: middle;
-  margin-right: var(--vp-space-xs);
+  margin-right: var(--space-xs);
 }
 
 .contact-line a {
@@ -359,17 +129,17 @@ footer {
 }
 
 .sep {
-  margin: 0 var(--vp-space-sm);
+  margin: 0 var(--space-sm);
   color: var(--color-text-secondary);
 }
 
 .license-notice {
-  font-size: var(--vp-license-text);
+  font-size: 12px;  /* --text-xs size */
+  line-height: 1.4;
   color: var(--color-text-secondary);
-  margin-top: var(--vp-space-sm);
+  margin-top: var(--space-sm);
 }
 
-/* Links inside the license notice (e.g. the author name → about page) */
 .license-notice a {
   color: inherit;
   text-decoration: none;
@@ -378,44 +148,30 @@ footer {
   color: var(--color-accent);
 }
 
+/* Section header — used by apps/ai; kept as shared component */
 .section-header {
-  font-size: var(--vp-section-header);
+  font-size: 12px;  /* --text-xs size */
   font-weight: 600;
   color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   width: 100%;
-  margin-top: 0;
-  margin-bottom: var(--vp-space-sm);
-  padding-bottom: var(--vp-space-xs);
+  margin: 0 0 var(--space-sm);
+  padding-bottom: var(--space-xs);
   border-bottom: var(--border-width) solid var(--color-border);
 }
 
-.tools-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: var(--vp-section-gap);
-}
-
-/* Tablet/desktop: let tools sections share leftover vertical space so the footer stays at the bottom */
-@media (min-width: 481px) {
-  .tools-section {
-    flex: 1 1 0;
-    min-height: 0;
-  }
-}
-
+/* Badge — used by ETL readme/docs pages; kept as shared component */
 .badge {
   display: inline-block;
-  font-size: var(--vp-badge);
+  font-size: 12px;  /* --text-xs size */
   font-weight: 500;
   padding: 2px 7px;
   border-radius: 3px;
   background: var(--color-warning);
   color: var(--color-text);
   vertical-align: middle;
-  margin-left: var(--vp-space-xs);
+  margin-left: var(--space-xs);
   line-height: 1.4;
   letter-spacing: 0.02em;
 }
@@ -424,11 +180,12 @@ footer {
   position: absolute;
   left: -9999px;
 }
+
 .skip-link:focus {
   left: 16px;
   top: 16px;
   z-index: 20000;
-  padding: var(--vp-space-md);
+  padding: var(--space-md);
   background: var(--color-accent);
   color: var(--color-text);
   border-radius: var(--border-radius-md);
@@ -437,10 +194,45 @@ footer {
   outline: none;
 }
 
-@media (min-width: 1200px) {
-  main {
-    padding-left: var(--space-3xl);
-    padding-right: var(--space-3xl);
+/* Mobile: stacked stats and contact links, hero clears the floating toggle */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: calc(var(--space-xl) + 44px);
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .stats-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .stats-item {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .contact-line {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .sep {
+    display: none;
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .contact-line a {
+    transition: none;
+  }
+}

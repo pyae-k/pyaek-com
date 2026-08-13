@@ -1,4 +1,4 @@
-const CACHE_NAME = "pyaek-blog-v15";
+const CACHE_NAME = "pyaek-blog-v16";
 const SHELL = [
   "./",
   "./index.html",

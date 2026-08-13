@@ -1,4 +1,4 @@
-const CACHE_NAME = "pyaek-home-v12";
+const CACHE_NAME = "pyaek-home-v17";
 const ASSETS = [
   "/",
   "/index.html",

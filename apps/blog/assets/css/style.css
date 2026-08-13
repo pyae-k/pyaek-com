@@ -5,24 +5,13 @@
    All tokens from /assets/css/base.css. No hardcoded values.
    ========================================================================== */
 
-/* Fixed-screen app shell: header + footer pinned, content fills the viewport.
-   Overrides the shared min-height: 100dvh body from base.css with a fixed
-   height and disables page scroll. The grid is sized to fill the remaining
-   space so the whole index fits one page; main only scrolls as a fallback
-   (e.g. a very short viewport or the long post-detail view). */
-body {
-  height: 100dvh;
-  overflow: hidden;
-}
-
-main {
-  flex: 1 1 auto;
-  min-height: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  overscroll-behavior: contain;
-  /* Tighter than the shared layout.css padding so the grid gets more room */
-  padding: var(--space-md);
+/* Natural document scroll. The shared base.css body (min-height: 100dvh,
+   flex column) and layout.css main provide the shell. The only thing left to
+   account for is the sticky glass-header (56px tall): scroll-padding-top keeps
+   anchored content — the #main skip-link target and the inline post detail
+   from scrollIntoView — from landing underneath it. */
+html {
+  scroll-padding-top: 64px;
 }
 
 /* Visually hidden — SEO h1 kept out of the visual layout but present for
@@ -56,33 +45,29 @@ main {
   color: var(--color-accent);
 }
 
-/* Blog section — fills the viewport: grid + pagination stack */
+/* Blog section — grid + pagination stack. Plain flex column; the page scrolls
+   naturally, nothing is pinned to the viewport. */
 .blog-section {
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: var(--space-sm);
-  flex: 1 1 auto;
-  min-height: 0;
+  gap: var(--space-md);
 }
 
-/* Blog grid — 4 columns; rows are a fixed count (12 cards ÷ 4 cols = 3 rows)
-   so every card keeps the 12-box size even when a page has fewer posts (e.g. a
-   category filter with 3 results). Empty rows absorb the leftover space and the
-   grid still fills the viewport; grid-auto-rows is a fallback for implicit rows. */
+/* Fluid grid — columns adapt to the container width alone, with no media
+   queries (4+ on wide screens → 1 on small phones). Unscoped on purpose:
+   #blogGrid also carries class="cards" from shared pages.css, which sets fixed
+   column counts; keeping this rule outside any media query lets our auto-fill
+   grid always win over .cards by source order. */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: minmax(0, 1fr);
-  gap: var(--space-sm);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  gap: var(--space-md);
   width: 100%;
-  flex: 1 1 auto;
-  min-height: 0;
 }
 
-/* Blog card — matches homepage .card component style; min-height 0 lets the
-   row sizing (minmax(0,1fr)) shrink it to fit the viewport. */
+/* Blog card — quiet, bordered, same icons and labels at every size. No
+   scale/shadow flourishes; hover only tints the surface. */
 .blog-card {
   display: flex;
   flex-direction: column;
@@ -91,21 +76,17 @@ main {
   text-align: center;
   text-decoration: none;
   color: var(--color-text);
-  padding: var(--space-sm);
-  min-height: 0;
-  overflow: hidden;
+  padding: var(--space-lg) var(--space-md);
   border: var(--border-width) solid var(--color-border);
   border-radius: var(--border-radius-md);
   background: var(--color-bg);
-  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  transition: background 0.2s ease;
   min-width: 0;
   cursor: pointer;
 }
 
 .blog-card:hover {
   background: var(--color-surface);
-  transform: scale(1.03);
-  box-shadow: var(--shadow-sm);
 }
 
 .blog-card:focus-within {
@@ -113,31 +94,29 @@ main {
   outline-offset: 2px;
 }
 
-/* Blog card icon — compact 32px box so cards fit the viewport */
+/* Blog card icon — one consistent size on every device */
 .blog-card-icon {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-text);
-  margin-bottom: var(--space-xs);
-  transition: transform 0.2s ease;
-}
-
-.blog-card:hover .blog-card-icon {
-  transform: scale(1.08);
+  margin-bottom: var(--space-sm);
 }
 
 .blog-card-icon svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
 }
 
-/* Blog card title — clamped to two lines so it shrinks with the card */
+/* Blog card title — clamped to two lines so it wraps cleanly at any column
+   width. Note: font: shorthand, not font-size — the --text-* tokens are
+   font-shorthand values (14px/1.5), so font-size: var(--text-sm) would be
+   invalid and silently inherit. */
 .blog-card-title {
-  font-size: var(--text-sm);
-  font-weight: 600;
+  font: 600 var(--text-base) var(--font-sans);
+  line-height: 1.35;
   letter-spacing: -0.022em;
   margin-bottom: var(--space-xs);
   display: -webkit-box;
@@ -145,7 +124,6 @@ main {
   -webkit-box-orient: vertical;
   overflow: hidden;
   max-width: 100%;
-  line-height: 1.3;
 }
 
 .blog-card-link {
@@ -154,31 +132,31 @@ main {
   transition: color 0.2s ease;
 }
 
+.blog-card:hover .blog-card-link,
 .blog-card-link:hover {
   color: var(--color-accent);
 }
 
-/* Blog card excerpt — one line, clipped */
+/* Blog card excerpt — two lines, clipped */
 .blog-card-excerpt {
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
   color: var(--color-text-secondary);
-  line-height: 1.4;
   width: 100%;
   text-align: center;
   margin-bottom: var(--space-xs);
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-/* Blog card meta — date, read time, category badge */
+/* Blog card meta — category badge, date, read time */
 .blog-card-meta {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  font-size: var(--text-xs);
+  font: var(--text-xs) var(--font-sans);
   color: var(--color-text-secondary);
   flex-wrap: wrap;
   width: 100%;
@@ -188,8 +166,7 @@ main {
   display: inline-block;
   padding: 2px 8px;
   border-radius: var(--border-radius-sm);
-  font-size: var(--text-xs);
-  font-weight: 600;
+  font: 600 var(--text-xs) var(--font-sans);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #fff;
@@ -223,8 +200,7 @@ main {
 }
 
 .post-detail-title {
-  font-size: var(--text-2xl);
-  font-weight: 700;
+  font: 700 var(--text-2xl) var(--font-sans);
   letter-spacing: -0.021em;
   line-height: 1.2;
   margin: 0 0 var(--space-sm);
@@ -234,7 +210,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-md);
 }
@@ -244,7 +220,7 @@ main {
 }
 
 .post-detail-body {
-  font-size: var(--text-base);
+  font: var(--text-base) var(--font-sans);
   line-height: 1.7;
   color: var(--color-text);
 }
@@ -300,7 +276,7 @@ main {
 }
 
 .post-detail-body figcaption {
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
   color: var(--color-text-secondary);
   margin-top: var(--space-sm);
 }
@@ -327,11 +303,11 @@ main {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 1.2em;
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
 }
 
 .post-detail-body caption {
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
   color: var(--color-text-secondary);
   text-align: left;
   margin-bottom: var(--space-sm);
@@ -359,7 +335,7 @@ main {
   text-align: center;
   padding: var(--space-3xl);
   color: var(--color-text-secondary);
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
   grid-column: 1 / -1;
 }
 
@@ -380,7 +356,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 0 var(--space-sm);
-  font-size: var(--text-sm);
+  font: var(--text-sm) var(--font-sans);
   color: var(--color-text);
   background: var(--color-bg);
   border: var(--border-width) solid var(--color-border);
@@ -415,108 +391,17 @@ main {
   user-select: none;
 }
 
-/* Responsive — match homepage breakpoints */
-@media (max-width: 900px) {
-  /* 3 columns x 4 rows so 12 cards fit the viewport height on tablets */
-  .blog-grid {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, minmax(0, 1fr));
-    gap: var(--space-sm);
-  }
-
-  /* Narrower cards: hide excerpt, shrink icon/padding */
-  .blog-card {
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  .blog-card-icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .blog-card-icon svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .blog-card-excerpt {
-    display: none;
-  }
-}
-
+/* Responsive — kept minimal. Column count needs no media queries (the grid is
+   fluid); only the gutter and the detail view get phone adjustments. */
 @media (max-width: 480px) {
-  /* 2 columns x 6 rows so 12 compact tiles fit a phone viewport */
-  .blog-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, minmax(0, 1fr));
-    gap: var(--space-sm);
-  }
-
-  .blog-card {
-    padding: var(--space-sm) var(--space-md);
-  }
-
-  /* Compact tiles: smaller icon, single-line title, no meta line */
-  .blog-card-icon {
-    width: 24px;
-    height: 24px;
-  }
-
-  .blog-card-icon svg {
-    width: 12px;
-    height: 12px;
-  }
-
-  .blog-card-title {
-    -webkit-line-clamp: 1;
-  }
-
-  .blog-card-meta {
-    display: none;
-  }
-
+  /* Keep a comfortable gutter on phones — the shared pages.css ≤480px main
+     rule would otherwise shrink it to ~6–8px via viewport-proportional tokens. */
   main {
-    padding: var(--space-sm);
+    padding: var(--space-md);
   }
 
   .post-detail {
     padding: var(--space-md) var(--space-sm);
-  }
-
-  /* Compact page buttons so the bar fits a phone width */
-  .page-btn {
-    min-width: 36px;
-    padding: 0 var(--space-xs);
-  }
-}
-
-/* Short non-mobile viewports: drop the excerpt, shrink icons, single-line
-   titles so the grid still fits. Scoped to min-width 481px so it can't
-   override the mobile 24px icon rule. */
-@media (max-height: 800px) and (min-width: 481px) {
-  .blog-card-excerpt {
-    display: none;
-  }
-
-  .blog-card-icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .blog-card-icon svg {
-    width: 14px;
-    height: 14px;
-  }
-
-  .blog-card-title {
-    -webkit-line-clamp: 1;
-  }
-}
-
-/* Very short non-mobile viewports: hide the meta line too */
-@media (max-height: 650px) and (min-width: 481px) {
-  .blog-card-meta {
-    display: none;
   }
 }
 

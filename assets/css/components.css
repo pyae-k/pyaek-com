@@ -193,8 +193,8 @@
 }
 
 .card-icon {
-  width: var(--vp-card-icon-box);
-  height: var(--vp-card-icon-box);
+  width: 40px;   /* fixed icon box */
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,12 +208,12 @@
 }
 
 .card-icon svg {
-  width: var(--vp-card-icon-svg);
-  height: var(--vp-card-icon-svg);
+  width: 20px;   /* fixed icon */
+  height: 20px;
 }
 
 .card-label {
-  font-size: var(--vp-card-label);
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.022em;
   margin-bottom: var(--space-xs);
@@ -224,7 +224,7 @@
 }
 
 .card-desc {
-  font-size: var(--vp-card-desc);
+  font-size: 12px;
   color: var(--color-text-secondary);
   line-height: 1.4;
   width: 100%;
@@ -251,8 +251,8 @@
   justify-content: center;
   min-width: 44px;
   min-height: 44px;
-  width: clamp(28px, 4.5dvh, 36px);
-  height: clamp(28px, 4.5dvh, 36px);
+  width: 36px;
+  height: 36px;
   padding: 0;
   border: var(--border-width) solid var(--color-border);
   border-radius: 50%;
@@ -286,16 +286,9 @@
 /* Floating variant for top-right corner placement */
 .theme-toggle--floating {
   position: fixed;
-  top: clamp(4px, 1.5dvh, 12px);
-  right: clamp(4px, 1.5dvh, 12px);
+  top: var(--space-sm);
+  right: var(--space-sm);
   z-index: 9999;
-}
-
-@media (max-width: 480px) {
-  .theme-toggle--floating {
-    top: clamp(4px, 1dvh, 8px);
-    right: clamp(4px, 1dvh, 8px);
-  }
 }
 
 /* Card variant for inline placement in the cards grid */
@@ -341,25 +334,6 @@
 
 .theme-toggle--card:hover .theme-toggle-icon {
   transform: scale(1.08);
-}
-
-@media (max-width: 900px) {
-  .theme-toggle--floating {
-    top: 8px;
-    right: 8px;
-  }
-
-  .theme-toggle {
-    width: 32px;
-    height: 32px;
-    min-width: 44px;
-    min-height: 44px;
-  }
-
-  .theme-toggle-icon {
-    width: 16px;
-    height: 16px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
