@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme flash prevention -->
+  <script>(function(){document.documentElement.setAttribute("data-theme","light");})();</script>
+  <!-- Standard meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Blog">
+  <!-- SEO -->
+  <title>X Open-Sources Its Ranking Algorithm: Shadowbans in the Open — Pyaek</title>
+  <meta name="title" content="X Open-Sources Its Ranking Algorithm: Shadowbans in the Open — Pyaek">
+  <meta name="description" content="X published the code behind its 'For You' feed and core ranking engine on GitHub under an Apache v2 license, and added an 'Under the Hood' tool that lets users check if their posts have been restricted. Here's what changed and what didn't.">
+  <meta name="author" content="Pyae Phyo Kyaw">
+  <meta name="keywords" content="tech, X, Twitter, open source, algorithm, shadowban, transparency, social media">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://pyaek.com/apps/blog/2026/08/x-open-sources-ranking-algorithm/">
+  <link rel="sitemap" href="/sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="Blog — Pyaek" href="https://pyaek.com/apps/blog/feed.xml">
+  <!-- OG -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pyaek.com/apps/blog/2026/08/x-open-sources-ranking-algorithm/">
+  <meta property="og:title" content="X Open-Sources Its Ranking Algorithm: Shadowbans in the Open">
+  <meta property="og:description" content="Bitcoin climbed back above $65,000 after a weak July jobs report cooled rate-hike fears, while US spot Bitcoin ETFs logged $853.5M in inflows over five straight days. Here&#x27;s what the numbers really say.">
+  <meta property="og:image" content="https://pyaek.com/apps/blog/assets/images/x-open-sources-ranking-algorithm.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="X Open-Sources Its Ranking Algorithm: Shadowbans in the Open">
+  <meta property="og:site_name" content="Pyae Phyo Kyaw">
+  <meta property="og:locale" content="en_US">
+  <meta property="article:published_time" content="2026-08-14T00:00:00+00:00">
+  <meta property="article:modified_time" content="2026-08-14T00:00:00+00:00">
+  <meta property="article:author" content="https://pyaek.com/apps/about/">
+  <meta property="article:section" content="tech">
+  <meta property="article:tag" content="tech">
+  <meta property="article:tag" content="X">
+  <meta property="article:tag" content="Twitter">
+  <meta property="article:tag" content="open source">
+  <meta property="article:tag" content="algorithm">
+  <meta property="article:tag" content="shadowban">
+  <meta property="article:tag" content="transparency">
+  <meta property="article:tag" content="social media">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="X Open-Sources Its Ranking Algorithm: Shadowbans in the Open">
+  <meta name="twitter:description" content="Bitcoin climbed back above $65,000 after a weak July jobs report cooled rate-hike fears, while US spot Bitcoin ETFs logged $853.5M in inflows over five straight days. Here&#x27;s what the numbers really say.">
+  <meta name="twitter:image" content="https://pyaek.com/apps/blog/assets/images/x-open-sources-ranking-algorithm.png">
+  <meta name="twitter:image:alt" content="X Open-Sources Its Ranking Algorithm: Shadowbans in the Open">
+  <!-- Icons & manifest -->
+  <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/apps/blog/manifest.json">
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "X Open-Sources Its Ranking Algorithm: Shadowbans in the Open",
+    "description": "X published the code behind its 'For You' feed and core ranking engine on GitHub under an Apache v2 license, and added an 'Under the Hood' tool that lets users check if their posts have been restricted. Here's what changed and what didn't.",
+    "datePublished": "2026-08-14",
+    "dateModified": "2026-08-14",
+    "author": { "@type": "Person", "name": "Pyae Phyo Kyaw", "url": "https://pyaek.com/apps/about/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Pyae Phyo Kyaw",
+      "url": "https://pyaek.com",
+      "logo": { "@type": "ImageObject", "url": "https://pyaek.com/assets/icons/apple-touch-icon.png", "width": 180, "height": 180 }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://pyaek.com/apps/blog/2026/08/bitcoin-65k-etf-inflows-2026/" },
+    "image": "https://pyaek.com/apps/blog/assets/images/bitcoin-65k-etf-inflows-2026.png",
+    "url": "https://pyaek.com/apps/blog/2026/08/bitcoin-65k-etf-inflows-2026/",
+    "inLanguage": "en-US",
+    "articleSection": "tech"
+  }
+  </script>
+  <!-- Structured Data: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://pyaek.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://pyaek.com/apps/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "X Open-Sources Its Ranking Algorithm: Shadowbans in the Open",
+        "item": "https://pyaek.com/apps/blog/2026/08/x-open-sources-ranking-algorithm/"
+      }
+    ]
+  }
+  </script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../../../../../assets/css/style.css">
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="glass-header">
+    <div class="header-inner">
+      <a href="../../../" class="app-title">Blog</a>
+      <div class="doc-btn-group" aria-label="Documentation and contact">
+        <a class="doc-btn" href="/apps/blog/readme/" title="README documentation" aria-label="README documentation">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </a>
+        <a class="doc-btn" href="/apps/blog/tech-doc/" title="Technical documentation" aria-label="Technical documentation">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </a>
+        <a class="doc-btn" href="mailto:hello@pyaek.com" title="Contact hello@pyaek.com" aria-label="Contact hello@pyaek.com">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+        </a>
+      </div>
+      <div class="header-filters" role="group" aria-label="Filter by category">
+        <button class="header-filter-btn active" data-filter="all">All</button>
+        <button class="header-filter-btn" data-filter="finance">Finance</button>
+        <button class="header-filter-btn" data-filter="tech">Tech</button>
+      </div>
+      <div class="header-search" role="search">
+        <input type="search" id="searchInput" class="search-input" placeholder="Search posts…" aria-label="Search blog posts">
+      </div>
+      <button class="theme-toggle" aria-label="Switch to dark mode" title="Switch to dark mode">
+        <svg class="theme-toggle-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="post-detail">
+      <div class="post-detail-header">
+        <h1 class="post-detail-title">X Open-Sources Its Ranking Algorithm: Shadowbans in the Open</h1>
+        <div class="post-detail-meta">
+          <span class="blog-card-category" data-category="tech">tech</span>
+          <span>Aug 14, 2026</span>
+          <span>4 min read</span>
+          <span>By <a class="post-detail-author" href="/apps/about/">Pyae Phyo Kyaw</a></span>
+        </div>
+      </div>
+      <div class="post-detail-body">
+<p><p>On 13 August 2026, X open-sourced the code behind its <strong>"For You" feed</strong> and core ranking engine, publishing it on GitHub under an <strong>Apache v2</strong> license [1][2]. The release is roughly <strong>10 to 15 times larger</strong> than previous code drops, and it comes with a new "Under the Hood" tool that lets users check whether their posts have been restricted [1]. It is the platform's biggest transparency move since going private — and critics say it is still incomplete.</p><h2>Story at a glance</h2><figure><svg viewBox="0 0 400 278" role="img" aria-label="Story at a glance flowchart: Event, X open-sources its For You feed and ranking engine on GitHub; Impact, users can audit the algorithm and check for shadowbans; Historical parallel, the 2023 and 2025 algorithm releases; Future outlook, public audits, pull requests, and remaining opacity" xmlns="http://www.w3.org/2000/svg"><style>.flow-box{fill:var(--color-surface,#F5F5F5);stroke:var(--color-border,#E0E0E0);stroke-width:1.5}.flow-box-accent{fill:var(--color-surface,#F5F5F5);stroke:var(--color-accent,#0071E3);stroke-width:1.5}.flow-arrow{stroke:var(--color-text-secondary,#6B6B6B);stroke-width:1.5;marker-end:url(#arrowhead)}.flow-title{fill:var(--color-text,#1A1A1A);font-size:11px;font-weight:600;font-family:var(--font-sans,system-ui,sans-serif);text-anchor:middle}.flow-sub{fill:var(--color-text-secondary,#6B6B6B);font-size:10px;font-family:var(--font-sans,system-ui,sans-serif);text-anchor:middle}</style><defs><marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="var(--color-text-secondary,#6B6B6B)"/></marker></defs><rect class="flow-box-accent" x="30" y="8" width="340" height="52" rx="8"/><text class="flow-title" x="200" y="30">EVENT — X open-sources its ranking engine</text><text class="flow-sub" x="200" y="46">For You feed code on GitHub, Apache v2</text><line class="flow-arrow" x1="200" y1="60" x2="200" y2="76"/><rect class="flow-box" x="30" y="78" width="340" height="52" rx="8"/><text class="flow-title" x="200" y="100">IMPACT — Users can audit and check shadowbans</text><text class="flow-sub" x="200" y="116">"Under the Hood" JSON download</text><line class="flow-arrow" x1="200" y1="130" x2="200" y2="146"/><rect class="flow-box" x="30" y="148" width="340" height="52" rx="8"/><text class="flow-title" x="200" y="170">HISTORICAL PARALLEL — 2023, 2025 releases</text><text class="flow-sub" x="200" y="186">Each drop was bigger than the last</text><line class="flow-arrow" x1="200" y1="200" x2="200" y2="216"/><rect class="flow-box" x="30" y="218" width="340" height="52" rx="8"/><text class="flow-title" x="200" y="240">FUTURE OUTLOOK — Public audits, pull requests</text><text class="flow-sub" x="200" y="256">Rule-violation systems stay closed</text></svg><figcaption>Figure 1: The X algorithm story at a glance — the open-source release, the shadowban tool, the history of transparency pushes, and what remains closed.</figcaption></figure><h2>What: the code is now public</h2><p>The release covers the <strong>"For You" timeline</strong> and the core ranking engine, including the <strong>home-mixer</strong> feed assembler, the <strong>phoenix</strong> action-prediction model, and <strong>visibility filtering</strong> that decides whether a post is shown [1][2]. X says it has removed almost all hand-engineered heuristics, relying on a Grok-based transformer to learn relevance from engagement [1].</p><h2>Why it matters: the shadowban question</h2><p>For years, users have accused X of quietly limiting the reach of certain accounts — "shadowbanning." The new <strong>"Under the Hood"</strong> settings page lets users with 10+ posts in the past month download a JSON file of their account stats to see if any labels or restrictions were applied [1]. X even suggests uploading the file to an LLM to interpret it [1].</p><h2>Who: X, researchers, and the public</h2><p>X's VP of Product <strong>Keith Coleman</strong> says the goal is a "level playing field" and public audit [1]. External researchers verified the ranking "score" independently before launch [1]. Developers can now submit <strong>pull requests</strong> to improve the algorithm [1].</p><h2>When: a history of transparency pushes</h2><table><caption>Table 1: X's algorithm releases. Sources: TechCrunch, GitHub [1][2].</caption><thead><tr><th>Date</th><th>Release</th></tr></thead><tbody><tr><td>2023</td><td>First "recommendation algorithm" code drop</td></tr><tr><td>2025</td><td>Expanded open-source release</td></tr><tr><td>13 Aug 2026</td><td>For You feed + ranking engine, 10-15x larger</td></tr></tbody></table><h2>Where: GitHub and the X app</h2><p>The code lives in the <strong>xai-org/x-algorithm</strong> repository on GitHub [2]. The shadowban check lives in the X app's settings [1].</p><h2>Which: the numbers that matter</h2><h3>What's in the release</h3><table><caption>Table 2: Components of the open-source release. Source: GitHub [2].</caption><thead><tr><th>Component</th><th>Role</th></tr></thead><tbody><tr><td>home-mixer</td><td>Assembles the For You feed</td></tr><tr><td>phoenix</td><td>Predicts engagement (likes, replies, reposts)</td></tr><tr><td>visibility-filtering</td><td>Decides if a post is displayed</td></tr><tr><td>License</td><td>Apache v2</td></tr></tbody></table><h3>What stays closed</h3><p>X did <strong>not</strong> open-source the systems that use Grok to predict rule violations, citing the risk of bad actors gaming spam filters [1].</p><h2>How: a transformer ranks your feed</h2><p>The ranking system uses a Grok-based transformer model called <strong>Phoenix</strong>, which predicts the probability of likes, replies, reposts, and clicks, then computes a final relevance score for each post [1][2]. Because the model learns from engagement sequences, X no longer needs most hand-written ranking rules [1].</p><h2>What next: audit, but with limits</h2><h3>The historical parallel</h3><p>X first open-sourced its algorithm in <strong>2023</strong> under pressure from regulators and users, then expanded it in 2025 [1]. Each release was bigger, but each also left key systems closed — the pattern continues in 2026 [1].</p><h3>The future outlook</h3><ul><li><strong>Public audits:</strong> Researchers and developers can now study and improve the ranking code via pull requests [1][2].</li><li><strong>Shadowban clarity:</strong> The JSON tool gives users evidence, but X still controls the interpretation [1].</li><li><strong>Remaining opacity:</strong> TechCrunch notes X is more transparent about code but less transparent overall — user metrics, revenue, and government takedown requests stay private [1].</li></ul><p>What to watch: whether the open code leads to real changes, and whether regulators push X to open the rule-violation systems too [1].</p><h2>References</h2><ol><li><a href="https://techcrunch.com/2026/08/13/x-open-sources-its-ranking-algorithm-letting-users-see-if-theyve-been-shadowbanned/" target="_blank" rel="noopener noreferrer">TechCrunch — X open sources its ranking algorithm, letting users see if they've been 'shadowbanned'</a></li><li><a href="https://github.com/xai-org/x-algorithm" target="_blank" rel="noopener noreferrer">GitHub — xai-org/x-algorithm</a></li><li><a href="https://techweekly.co.za/2026/08/13/x-makes-its-ranking-algorithm-open-source-allowing-users-to-check-for-shadowbans/" target="_blank" rel="noopener noreferrer">Tech Weekly — X makes its ranking algorithm open source, allowing users to check for 'shadowbans'</a></li></ol><h2>Disclaimer</h2><p>This content is for educational purposes only. Figures are as of 14 August 2026 and may be revised. Always verify current information before relying on it.</p></div>
+    </article>
+  </main>
+  <footer>
+    <div class="contact-line">
+      <a href="https://wa.me/66804011824" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <a href="mailto:hello@pyaek.com" aria-label="Email">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <a href="https://www.linkedin.com/in/pyaek" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <span class="sep" aria-hidden="true">&middot;</span>
+      <a href="https://github.com/pyae-k" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg class="contact-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        GitHub
+      </a>
+    </div>
+    <p class="license-notice">&copy; 2026 <a href="/apps/about/">Pyae Phyo Kyaw</a>. <a href="https://github.com/pyae-k/pyaek-com/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
+  </footer>
+  <script>
+  // Theme toggle handler
+  (function() {
+    var toggle = document.querySelector('.theme-toggle');
+    var icon = toggle && toggle.querySelector('.theme-toggle-icon');
+    function setIcon(mode) {
+      if (!icon) return;
+      icon.innerHTML = mode === 'dark'
+        ? '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+        : '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+    }
+    var current = document.documentElement.getAttribute('data-theme') || 'light';
+    setIcon(current);
+    if (toggle) {
+      toggle.addEventListener('click', function() {
+        var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        toggle.setAttribute('aria-label', 'Switch to ' + (next === 'dark' ? 'light' : 'dark') + ' mode');
+        toggle.setAttribute('title', 'Switch to ' + (next === 'dark' ? 'light' : 'dark') + ' mode');
+        setIcon(next);
+      });
+    }
+  })();
+
+  // Header nav: filter/search navigate to the blog index
+  (function() {
+    var base = "../../../";
+    document.querySelectorAll(".header-filter-btn").forEach(function(btn) {
+      btn.addEventListener("click", function() {
+        var f = btn.dataset.filter;
+        location.href = f === "all" ? base : base + "?filter=" + f;
+      });
+    });
+    var searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      searchInput.addEventListener("keydown", function(e) {
+        if (e.key === "Enter") {
+          var q = searchInput.value.trim();
+          location.href = q ? base + "?q=" + encodeURIComponent(q) : base;
+        }
+      });
+    }
+  })();
+
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker.register("/apps/blog/sw.js", { scope: "/apps/blog/" }).catch(function() {});
+    });
+  }
+  </script>
+</body>
+</html>

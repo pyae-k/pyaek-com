@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://pyaek.com/apps/blog/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-08-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -68,6 +68,96 @@
     <lastmod>2026-08-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/ai-reasoning-token-exploit-inner-thoughts/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/ai-reasoning-token-exploit-inner-thoughts.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/bank-of-america-jio-credit-india/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/bank-of-america-jio-credit-india.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/chatgpt-gemini-1-billion-users/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/chatgpt-gemini-1-billion-users.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/goldman-sachs-neos-bitcoin-etf/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/goldman-sachs-neos-bitcoin-etf.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/google-deepmind-leadership-shakeup/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/google-deepmind-leadership-shakeup.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/grok-bot-ai-teammates/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/grok-bot-ai-teammates.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/japan-yen-intervention-1-trillion-war-chest/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/japan-yen-intervention-1-trillion-war-chest.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/sp500-record-7800-ppi-ai-rally/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/sp500-record-7800-ppi-ai-rally.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/treasury-yields-2007-highs-30-year-sale/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/treasury-yields-2007-highs-30-year-sale.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pyaek.com/apps/blog/2026/08/x-open-sources-ranking-algorithm/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://pyaek.com/apps/blog/assets/images/x-open-sources-ranking-algorithm.png</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://pyaek.com/apps/blog/2026/08/hormuz-oil-shock-markets-2026/</loc>
